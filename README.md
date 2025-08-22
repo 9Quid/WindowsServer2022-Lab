@@ -1,0 +1,2 @@
+# Active-Directory-Lab-Windows-Server-2022-with-Windows-Ubuntu-Clients
+This project demonstrates how I deployed an Active Directory lab using Windows Server 2022 in VMware to simulate a real-world organizational network. I configured AD DS, DNS, and DHCP; joined Windows 11 and Ubuntu clients; practiced IT support, system admin, and IAM including user/group management, file shares, permissions, and password resets.
