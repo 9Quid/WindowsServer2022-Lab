@@ -1,4 +1,4 @@
-# Active Directory Lab - Windows Server 2022 with Windows & Linux Clients
+# Active Directory Lab - Windows Server 2022
 
 This was the very first project in my journey into the world of IT. I’ve practiced it many times, both by following online tutorials and by trying it on my own. Some days everything works smoothly, and other days leave you scratching your head—especially when it comes to network connectivity. But that’s all part of the journey, and I’m gradually embracing it, and you should too!. <br />
 
