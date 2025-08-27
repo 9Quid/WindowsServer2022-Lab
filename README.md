@@ -1,17 +1,17 @@
 # Active Directory Lab - Windows Server 2022
 
-This was the very first project in my journey into the world of IT. I’ve practiced it many times, both by following online tutorials and by trying it on my own. Some days everything works smoothly, and other days leave you scratching your head—especially when it comes to network connectivity. But that’s all part of the journey, and I’m gradually embracing it, and you should too!. <br />
+This was the very first project in my journey into the world of IT. I’ve practiced it many times, both by following online tutorials and by trying it on my own. Some days everything works smoothly, and other days leave you scratching your head especially when it comes to network connectivity. But that’s all part of the journey, and I’m gradually embracing it, and you should too!. <br />
 
 ## Overview & Lab Goals
 
 This project simulates a small organizational network to practice Active Directory management. Key objectives:
 
-- Install and configure Windows Server 2022
+- Installed and configure Windows Server 2022
 - Set up Active Directory Domain Services (AD DS), DNS, and DHCP
 - Create and manage users, groups, and organizational units (OUs)
-- Join a Windows 11 client to the domain
+- Joined a Windows 11 client to the domain
 - Optionally join Ubuntu Server/Desktop and Kali Linux clients
-- Configure network file shares and basic Group Policies
+- Configured network file shares and basic Group Policies
 
 
 ### Course Reference:
@@ -47,16 +47,99 @@ This lab follows concepts from *Introduction to Windows Server 2016 for Beginner
 
 The project is organized into step-specific folders containing screenshots, scripts, or configuration files for each lab task:<br />
 
-AD-Lab-Windows-Server-2022/ <br />
-├─ README.md <br />
-├─ 01-Server-Setup/ <br />
-├─ 02-AD-DS-Config/ <br />
-├─ 03-DNS-DHCP/ <br />
-├─ 04-Users-Groups/ <br />
-├─ 05-Clients/ <br />
-├─ 06-File-Share-GPO/ <br />
-├─ 07-Linux-Integration/ <br />
-└─ 08-Lessons-Learned/ <br />
+**ActiveDirectory-Lab-WS2022/**
+
+**├─ docs/<br />**
+&nbsp;&nbsp;&nbsp;&nbsp;└─ network-diagram.png
+
+README.md      
+**[1. Server-Setup/](./1.Server-Setup/README.md) <br />**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md                
+&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/          
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ server-install.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ server-nic.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ roles-features.png<br />
+
+**[2. AD DS Config/](./2.AD-DS-Config/README.md) <br />**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md                 
+&nbsp;&nbsp;&nbsp;&nbsp;├─ screenshots/<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─dc-promotion.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ ad-ds-config.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ ad-users-groups.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp;└─ configs/<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ ad-ds-backup.txt<br />
+
+**[3. DNS & DHCP Config/](./3.DNS-DHCP/README.md)<br />**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md                
+&nbsp;&nbsp;&nbsp;&nbsp;├─ dhcp-config-export.txt<br />
+&nbsp;&nbsp;&nbsp;&nbsp;├─ dns-zone-export.txt<br />
+&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  ├─ server-nic.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  ├─ dhcp-scope.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  ├─ dns-zone.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  └─ nslookup.png<br />
+
+**[4. Users, Groups & OUs Config/](./4.Users-Groups-OUs/README.md)<br />**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md           
+&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  ├─ ou-structure.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  ├─ group-membership.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  └─ delegated-permissions.png<br />
+
+**[5. Windows 11/](./5.Windows-11-client/README.md)/<br />**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md           
+&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ win11-join.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ win11-dhcp.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ win11-nslookup.png<br />
+
+**[6. File Share & GPO/](./6.File-Share-GPO/README.md)<br />**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md             
+&nbsp;&nbsp;&nbsp;&nbsp;├─ configs/<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ gpo-export.txt<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ screenshots/<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ file-share.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ gpo-desktop-bg.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ gpo-logon-banner.png<br />
+
+**[7. IIS & Print Services/<br />](./7.IIS-Print-Services/README.md)**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md              
+&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ iis-install.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ website-config.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ printer-deploy.png<br />
+
+**[8.FRSM-Quotas/<br />](./8.FRSM-Qoutas/README.md)**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md             
+&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ fsrm-setup.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ user-quotas.png<br />
+
+**[9.RDP-WSUS-Backup/<br />](./9.RDP,WSUS,Backup/README.md)**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md     
+&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ rdp-config.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; ├─ wsus-console.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp; └─ backup-snapshot.png<br />
+
+**[10. PowerShell Scripts/<br />](./10.PowerShell-Scripts/README.md)**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md            
+&nbsp;&nbsp;&nbsp;&nbsp;└─ scripts/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;├─ add-ad-user.ps1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;├─ manage-groups.ps1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  └─ manage-ous.ps1<br />
+
+**[11. Linux Clients/<br />](./11.linux-Clients/README.md)**
+&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md             
+&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  ├─ ubuntu-join.png<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  └─ kali-testing.png<br />
+
+**[12. Lessons Learned/<br />](./12.Lessons-Learned/README.md)**
+&nbsp;&nbsp;&nbsp;&nbsp;├─README.md                 
+&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/            
+&nbsp;&nbsp;&nbsp;&nbsp; └─ example-issue.png
+
 
 ***Each folder contains screenshots and resources relevant to that step.***
 
