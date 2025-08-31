@@ -39,7 +39,7 @@ After installing AD DS, I went on to promote the server to a Domain Controller.
 
 To ensure the Domain Controller is fully working , I created an Organizational Unit as seen below
 
-![alt text](05-TestOU.png)
+![alt text](<../2.AD DS Config/screenshots/05-TestOU.png>)
 
 **Figure 05:** shows a test OU
 
@@ -49,7 +49,7 @@ To ensure the Domain Controller is fully working , I created an Organizational U
 
 - Get-ADDomain
 - Get-ADForest
-![alt text](06.DC-functionality.png)
+![alt text](<../2.AD DS Config/screenshots/06.DC-functionality.png>)
 
 ### Lessons Learned
 
@@ -57,8 +57,8 @@ To ensure the Domain Controller is fully working , I created an Organizational U
 
 - DNS is tightly integrated: AD DS setup automatically installs/configures DNS, and allows promotion to be successfull.
 
-After promotion a reboot is mandatory.
+- After promotion a reboot is mandatory.
 
-OU creation is a quick test. Creating an OU  is a simple way to confirm DC is working properly.
+- OU creation is a quick test. Creating an OU  is a simple way to confirm DC is working properly.
 
-Patience during promotion. The wizard takes a while and can look stuck — but letting it finish is the way to go.
+- Patience during promotion. The wizard takes a while and can look stuck — but letting it finish is the way to go.
