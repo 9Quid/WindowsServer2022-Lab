@@ -86,7 +86,7 @@ README.md
 &nbsp;&nbsp;&nbsp;&nbsp;  ├─ group-membership.png<br />
 &nbsp;&nbsp;&nbsp;&nbsp;  └─ delegated-permissions.png<br />
 
-**[5. Windows 11/](./5.Windows-11-client/README.md)/<br />**
+**[5. Windows 11/](./5.Windows-11-client/README.md)<br />**
 &nbsp;&nbsp;&nbsp;&nbsp;├─ README.md           
 &nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
 &nbsp;&nbsp;&nbsp;&nbsp; ├─ win11-join.png<br />
