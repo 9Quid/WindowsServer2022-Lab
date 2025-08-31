@@ -2,10 +2,9 @@
 
 ## 🎯 Objectives
 
--Install Windows Server 2022 on VMware.
--Configure initial server settings (hostname, NIC, IP, updates).
--Install essential roles and features for AD DS lab.
--Verify network connectivity and readiness for AD DS deployment.
+- Install Windows Server 2022 on VMware.
+- Configure initial server settings (hostname, NIC, IP, updates).
+- Verify network connectivity and readiness for AD DS deployment.
 
 ## Steps and Walkthroughs
 
@@ -13,16 +12,16 @@
 
 -Firstly, I deployed windows server on VMware Workstation Pro and allocated **4 GB RAM**, **2 CPUs**, and **60 GB disk**.
 
-![alt text](01-vmware-vm-settings.png)
+![alt text](screenshots/01-vmware-vm-settings.png)
 **Figure 01:** Shows Resources allocated to Windows Server
 
 Next, I installed Server 2022 Datacenter with Desktop Experience.
 
-![alt text](02-server-setup-selection.png)
+![alt text](screenshots/02-server-setup-selection.png)
 **Figure 02:** Windows Server 2022 installation with Desktop Experience selected.
 
 Then confirmed the set-up was complete.
-![alt text](03-server-first-login.png) ![alt text](04-windows-server-dashboard.png)
+![alt text](screenshots/03-server-first-login.png)![alt text](screenshots/04-windows-server-dashboard.png)
 **Figure 03 & 04:** Show the first login page and the windows server dashboard respectively.
 
 ### Step 2 - Configure Network Interface
@@ -32,46 +31,21 @@ Then confirmed the set-up was complete.
 - Default Gateway: **192.168.1.1**
 - Preferred DNS: **192.168.1.9**
 
-![alt text](05_nic-config.png)
-**Figure 2.1:** NIC properties showing assigned static IP, subnet mask, gateway, and DNS.
+- then confirmed configurations were applied by running ipconfig command
+![alt text](screenshots/05_nic-config.png)![alt text](screenshots/06-IP-config.png)
+**Figure 5 & 6:** NIC properties showing assigned static IP, subnet mask, gateway, and DNS and IP configuration respectively
 
 ### Step 3 – Rename Server & Join Domain Preparation
 
-- Here i renamed server: 9Quid-Server
+- Here, I renamed the server: 9Quid-Server
 
-![alt text](07-Rename-Server.png)
+![alt text](screenshots/07-rename-Server.png)
 **Figure 07:** Shows a new name for the Windows Server
 
 - Verified network connectivity by pinging the DNS server and the loopback address.
 
-![alt text](<08-ping-loopback & DNS.png>)
+![alt text](<screenshots/08-ping-loopback & DNS.png>)
 **Figure 08:** Successfull ping to the loopback & DNS
-
-### Step 4 – Install Roles & Features
-
-- Opened Server Manager, clicked on **Manage** selected **Add Roles and Features**
-
-![alt text](<09-roles & features.png>)
-**Figure 09:** added roles and features
-
-- Then completed the wizard and installed **AD DS**
-
-![alt text](<10-AD DS- installed.png>)
-
-**Figure 10:** Shows the completed installation of AD DS
-
-### Step 5 Promote Server to Domain Controller
-
-After installing AD DS, I went on to promote the server to a Domain Controller.
-> **Note:** At this stage, I took a snapshot of the system to preserve its current state before promotion.
-![alt text](<11-AD DS-promotion.png>)
-
-### Step 6 Verify Server has been promoted to Domain Controller
-
-- At this stage after promoting the server to Domain Controller, the server rebooted and all modifications were applied successfully
-
-![alt text](12-promoted-server.png)
-**Figure 12:** shows server as a domain controller
 
 ## Key Settings, Commands & Troubleshooting Notes
 
