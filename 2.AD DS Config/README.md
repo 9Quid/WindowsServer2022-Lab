@@ -68,4 +68,4 @@ To ensure the Domain Controller is fully working , I created an Organizational U
 
 - OU creation is a quick test. Creating an OU  is a simple way to confirm DC is working properly.
 
-- Patience during promotion. The wizard takes a while and can look stuck — but letting it finish is the way to go.
+- Patience during promotion. The wizard takes a while and can look stuck but letting it finish is the way to go.
