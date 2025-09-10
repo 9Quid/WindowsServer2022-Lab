@@ -1,26 +1,24 @@
-# 1. Active Directory Domain services set-up
+# Active Directory Domain services set-up
+
+## Introduction
+
+In this lab, I set up Active Directory Domain Services on Windows Server 2022. I installed the AD DS role, promoted the server to a Domain Controller, and verified functionality by creating and testing an Organizational Unit (OU).
 
 ## Objectives
 
-- Install Active Directory Domain Services (AD DS) role on Windows Server 2022.
-- Promote the server to a Domain Controller.
-- Test Domain Controller functionality.
-
-## Steps and Walkthroughs
+The goal of this lab was to install and configure Active Directory Domain Services (AD DS), promote the server to a Domain Controller, and confirm its functionality in the domain environment..
 
 ### Step 1 – Install Roles & Features
 
 - Opened Server Manager, clicked on **Manage** selected **Add Roles and Features**
 
 ![alt text](<../2.AD DS Config/screenshots/01-roles & features.png>)
-
-**Figure 01:** added roles and features
+**Figure shows added roles and features**
 
 - Then completed the wizard and installed **AD DS**
 
 ![alt text](<../2.AD DS Config/screenshots/02-AD DS- installed.png>)
-
-**Figure 02:** Shows the completed installation of AD DS
+**Figure Shows the completed installation of AD DS**
 
 ### Step 2 Promote Server to Domain Controller
 
@@ -28,24 +26,21 @@ After installing AD DS, I went on to promote the server to a Domain Controller.
 > **Note:** At this stage, I took a snapshot of the system to preserve its current state before promotion.
 
 ![alt text](<../2.AD DS Config/screenshots/03-AD DS-promotion.png>)
-
-**Figure 03:** server promotion
+**Figure server promotion**
 
 ### Step 3 Verify Server has been promoted to Domain Controller
 
 - At this stage after promoting the server to Domain Controller, the server rebooted and all modifications were applied successfully
 
 ![alt text](<../2.AD DS Config/screenshots/04-promoted-server.png>)
-
-**Figure 04:** shows server as a domain controller
+**Figure shows server as a domain controller**
 
 ### Step 4: Test Domain Controller Functionality
 
 To ensure the Domain Controller is fully working , I created an Organizational Unit as seen below
 
 ![alt text](<../2.AD DS Config/screenshots/05-TestOU.png>)
-
-**Figure 05:** shows a test OU
+**Figure shows a test OU**
 
 ## Useful Commands
 
@@ -55,8 +50,7 @@ To ensure the Domain Controller is fully working , I created an Organizational U
 - Get-ADForest
 
 ![alt text](<../2.AD DS Config/screenshots/06.DC-functionality.png>)
-
-**Figure 06:** DC fully functioning
+**Figure shows DC fully functioning**
 
 ### Lessons Learned
 
