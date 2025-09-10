@@ -10,7 +10,7 @@ The goal of this lab was to install Windows Server 2022, configure initial setti
 
 ### Step 1: Installed Windows Server 2022
 
-- Firstly, I deployed windows server on VMware Workstation Pro and allocated `4 GB RAM`, `2 CPUs`, and *60 GB disk`.
+- Firstly, I deployed windows server on VMware Workstation Pro and allocated `4 GB RAM`, `2 CPUs`, and `60 GB disk`.
 
 ![alt text](screenshots/01-vmware-vm-settings.png)
 
