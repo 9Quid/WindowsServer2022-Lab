@@ -10,11 +10,11 @@ In this lab, I learned how to manage file access in a Windows Server 2022 Active
 
 - `Effective Access`: The most restrictive combination of NTFS and Share permissions.
 
--`Drive Mapping`: Assigns a drive letter on client machines for easier access to network resources.
+- `Drive Mapping`: Assigns a drive letter on client machines for easier access to network resources.
 
 ## Objectives
 
-The aim of this lab was to create shared folders for departments and users,apply NTFS and Share permissions following least privilege principles and automate drive mapping using Group Policy.Finanlly, test access with different Active Directory user accounts.
+The aim of this lab was to create shared folders for departments and users, apply NTFS and Share permissions following least privilege principles and automate drive mapping using Group Policy.Finanlly, test access with different Active Directory user accounts.
 
 ## Step 1: Prepare Department Share Folders
 
@@ -30,9 +30,9 @@ The aim of this lab was to create shared folders for departments and users,apply
 
 - IT Folder `(E:\DeptShares\IT):`
 
-  - IT Department Group -> Full Control
+  - IT Department Group -> `Full Control`
 
-  - Domain Admins -> Full Control
+  - Domain Admins -> `Full Control`
 
 ![alt text](screenshots/2.IT-depart-perm.png)
 
@@ -40,9 +40,9 @@ The aim of this lab was to create shared folders for departments and users,apply
 
 - SOC Folder `(E:\DeptShares\SOC):`
 
-  - SOC Analysts Group -> Modify
+  - SOC Analysts Group -> `Modify`
 
-  - Domain Admins -> Full Control
+  - Domain Admins -> `Full Control`
 
 ![alt text](screenshots/3.perm-for-SOC.png)
 
@@ -58,7 +58,7 @@ The aim of this lab was to create shared folders for departments and users,apply
 
 **Figure shows advanced permission settings for the Public Folder**
 
-  - Note: When setting NTFS permissions, I first removed then explicitly added only the groups that required access.
+  - `Note`: When setting NTFS permissions, I first removed all existing permissions then explicitly added only the groups that required access.
 
 **Step 3: Configure Share Permissions**
 
@@ -68,7 +68,7 @@ Share Name: Match the folder name such as `IT`, `SOC`, `Public`.
 
 Share Permissions:
 
-`Everyone` -> Full Control as this simplifies management.
+`Everyone` -> `Full Control` as this simplifies management.
 
    -  Best practice is to rely on NTFS permissions for security. Share permissions are left open (Full Control for Everyone) so NTFS governs effective access.
 
@@ -80,9 +80,9 @@ Moving on to this section, I configured automatic drive mappings via Group Polic
 
 - Next I created a new GPO: `DeptShare Mapping`.
 
-- Then linked it to the Douala- CMR Offic OU.
+- Then linked it to the `Douala- CMR Offic` OU.
 
-- I navigated to: `User Configuration → Preferences → Windows Settings → Drive Maps`
+- I navigated to: `User Configuration -> Preferences -> Windows Settings -> Drive Maps`
 
 - Next I added drive mappings:
 
@@ -107,13 +107,13 @@ Moving on to this section, I configured automatic drive mappings via Group Polic
 
 **Step 5: Test Access**
 
-I then logged into my Windows 11 client as SOC Analyst (cbrest).
+I then logged into my Windows 11 client as SOC Analyst `(cbrest)`.
 
 Verified that:
 
-`S:` mapped automatically to \\9QUID-SERVER\SOC Depart
+`S:` mapped automatically to `\\9QUID-SERVER\SOC Depart`.
 
-`P:` mapped automatically to \\9QUID-SERVER\Public.
+`P:` mapped automatically to `\\9QUID-SERVER\Public`.
 
 `I:` was not mapped (since the user wasn’t in IT).
 
