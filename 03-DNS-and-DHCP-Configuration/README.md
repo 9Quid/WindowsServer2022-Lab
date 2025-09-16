@@ -26,7 +26,7 @@ DNS, as earlier explained, helps resolve hostnames to IP addresses and vice vers
 | `NS`          | Specifies the `authoritative name servers` for a zone |
 | `SRV`        | Identifies servers providing `specific services` (e.g., AD DS, Kerberos) |
 
-- Note: When setting up `Active Directory Domain Services (AD DS)`the DNS role is installed by default.
+**Note: When setting up `Active Directory Domain Services (AD DS)`the DNS role is installed by default**.
   
 - By default, only `Forward Lookup Zones`(resolves hostnames to IP) are created automatically.
   
@@ -132,21 +132,17 @@ I made sure the name resolution worked using `nslookup 9quid.local`.
 
 ### Commands
 
-`Get-DnsServerZone`          *List DNS zones*
+| Command | Purpose |
+|---------|---------|
+| `Get-DnsServerZone` | **List DNS zones** |
+| `Get-DhcpServerv4Scope` | **List DHCP scopes** |
+| `nslookup 9quid.local` | **Test DNS resolution**|
+| `ipconfig /all` | **Check client IP** |
+| `Restart-Service DHCPServer` | **Restart DHCP service** |
+| `ipconfig /flushdns` | **Flush DNS cache** |
+| `ipconfig /release` | **Release the client’s current IP address** |
+| `ipconfig /renew` | **Get a new IP from the DHCP server** |
 
-`Get-DhcpServerv4Scope`      *List DHCP scopes*
-
-`nslookup 9quid.local`        *Test DNS resolution*
-
-`ipconfig /all`                *Check client IP*
-
-`Restart-Service DHCPServer` *Restart DHCP service*
-
-`ipconfig /flushdn `         *Flush DNS cache*
-
-`ipconfig /release`          *Releases the client’s current IP address*
-
-`ipconfig /renew`             *get a new IP from the DHCP server*
 
 >## Active Directory Lab Networking Troubleshooting
 
