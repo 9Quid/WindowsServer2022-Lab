@@ -10,13 +10,13 @@ The goal of this lab was to install Windows Server 2022, configure initial setti
 
 ### Step 1: Installed Windows Server 2022
 
-- Firstly, I deployed windows server on VMware Workstation Pro and allocated `2 GB RAM`, `2 CPUs`, and `60 GB disk`.
+Firstly, I deployed windows server on VMware Workstation Pro and allocated `2 GB RAM`, `2 CPUs`, and `60 GB disk`.
 
 ![alt text](screenshots/01-vmware-vm-settings.png)
 
 **Figure Shows Resources allocated to Windows Server**
 
-- Next, I installed Server 2022 Datacenter with Desktop Experience.
+Next, I installed Server 2022 Datacenter with Desktop Experience.
 
 ![alt text](screenshots/02-server-setup-selection.png)
 
@@ -35,7 +35,7 @@ Then confirmed the set-up was complete.
 - `Default Gateway`: **192.168.1.1**
 - `Preferred DNS`: **192.168.1.9**
 
-- I then confirmed configurations were applied by running ipconfig command.
+I then confirmed configurations were applied by running ipconfig command.
 
 ![alt text](screenshots/05_nic-config.png)![alt text](screenshots/06-IP-config.png)
 
@@ -43,13 +43,13 @@ Then confirmed the set-up was complete.
 
 ### Step 3: Rename Server & Join Domain Preparation
 
-- Here, I renamed the server: `9Quid-Server`
+Here, I renamed the server: `9Quid-Server`
 
 ![alt text](screenshots/07-rename-Server.png)
 
 #### Figure: Shows a new name for the Windows Server
 
-- I verified network connectivity by pinging the DNS server and the loopback address.
+I verified network connectivity by pinging the DNS server and the loopback address.
 
 ![alt text](<screenshots/08-ping-loopback & DNS.png>)
 

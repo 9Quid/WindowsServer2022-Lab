@@ -72,19 +72,21 @@ The project is organized into step-specific folders containing screenshots, scri
 
 ### Network Diagram
 
-![alt text](<Docs/WinServer_AD.drawio (2).png>)
+![alt text](<Docs/WinServer_AD.drawio (3).png>)
 
 # Table of Contents
 
-1. [Server Setup](#01-server-setup)
-2. [Active Directory Setup](#02-active-directory-setup)
-3. [DNS and DHCP Configuration](#03-dns-and-dhcp-configuration)
-4. [User Access Management](#04-user-access-management)
-5. [Windows 11 AD Join](#05-windows11-ad-join)
-6. [File Server Management](#06-file-server-management)
-7. [IIS and Print Services Configuration](#07-iis-and-print-services-configuration)
-8. [WSUS and Windows Backup Lab](#08-wsus-and-windows-backup-lab)
-9. [Ubuntu AD Integration](#09-ubuntu-ad-integration)
-10. [PowerShell Scripts](#10-powershell-scripts)
+## Table of Contents
+
+1. [Server Setup](./01-Server-Setup/)
+2. [Active Directory Setup](./02-Active-Directory-Setup/)
+3. [DNS and DHCP Configuration](./03-DNS-and-DHCP-Configuration/)
+4. [User Access Management](./04-User-Access-Management/)
+5. [Windows 11 AD Join](./05-Windows11-AD-Join/)
+6. [File Server Management](./06-File-Server-Management/)
+7. [IIS and Print Services Configuration](./07-IIS-and-Print-Services-Configuration/)
+8. [WSUS and Windows Backup Lab](./08-WSUS-and-Windows-Backup-Lab/)
+9. [Ubuntu AD Integration](./09-Ubuntu-AD-Intergration/)
+10. [PowerShell Scripts](./10-PowerShell-Scripts/)
 
 **Each folder contains screenshots and resources relevant to that step.**
