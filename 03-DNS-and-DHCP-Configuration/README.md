@@ -44,7 +44,7 @@ I set up a reverse lookup zone just out of curiosity, it’s not required for a 
 
 ### Step 2 DHCP Configuration
 
-- DHCP stands for Dynamic Host Configuration Protocol. It allows for automatic IP assignment which reduces manual efort and potential errors. It does this in a process called `DORA`
+DHCP stands for Dynamic Host Configuration Protocol. It allows for automatic IP assignment which reduces manual efort and potential errors. It does this in a process called `DORA`
   
 - `Discover`: Here, when a client device joins the network, it sends a broadcast requesting for an IP address.
 
@@ -58,7 +58,7 @@ Below are the steps to configure a DHCP Server
 
 ### Step 1 Install DHCP
 
-- On the Server Manager dashbord, I went to the top right click on `Manage` then `Add roles and features` then select DHCP. Then completed the setup wizared as shown below.
+On the Server Manager dashbord, I went to the top right click on `Manage` then `Add roles and features` then select DHCP. Then completed the setup wizared as shown below.
 
 ![alt text](screenshots/04-DHCP-installation-wizard.png)
 
@@ -76,13 +76,13 @@ On the top right in Sever manager, clicked on `Tools` then `DHCP`. Then right cl
 
 **Figure shows scope definition**
 
-- Next, added address range: `192.168.1.1 - 192.168.1.100`
+Next, added address range: `192.168.1.1 - 192.168.1.100`
 
 ![alt text](screenshots/07-DHCP-address-range.png)
 
 **Figure shows IP address range**
 
-- The next step was the exclusion list. This list will consist of IP addresses that will not be assigned to clients by the DHCP server. `192.168.1.1 - 192.168.1.20`
+The next step was the exclusion list. This list will consist of IP addresses that will not be assigned to clients by the DHCP server. `192.168.1.1 - 192.168.1.20`
 
 ![alt text](screenshots/08-DHCP-exclusion-range.png)
 
