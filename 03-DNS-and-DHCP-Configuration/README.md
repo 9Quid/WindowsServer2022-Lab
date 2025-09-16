@@ -2,9 +2,9 @@
 
 ## Introduction
 
-DNS (Domain Name System): It is a service that translates human-readable names such as `www.example.com` into IP addresses like `192.168.1.10`. Active Directory uses it to locate domain controllers and services. It runs on port 53 UDP
+`DNS (Domain Name System)`: It is a service that translates human-readable names such as `www.example.com` into IP addresses like `192.168.1.10`. Active Directory uses it to locate domain controllers and services. It runs on port `53 UDP`
 
-DHCP (Dynamic Host Configuration Protocol): A service that automatically assigns IP addresses, subnet masks, default gateways, and DNS servers to clients. This reduces manual configuration and ensures consistent network settings. It uses UDP port 67 for the server to listen for requests and UDP port 68 for the client to listen for responses.
+`DHCP (Dynamic Host Configuration Protocol)`: A service that automatically assigns IP addresses, subnet masks, default gateways, and DNS servers to clients. This reduces manual configuration and ensures consistent network settings. It uses port `67 UDP` for the server to listen for requests and port `68 UDP` for the client to listen for responses.
 
 ## Objectives
 
@@ -12,9 +12,7 @@ The goal of this lab was to install and configure DNS and DHCP, create the neces
 
 ### Step 1 DNS setup
 
-- DNS, as earlier explained, helps resolve hostnames to IP addresses and vice versa.  
-  To achieve this, DNS uses different types of `resource records` that serve specific purposes.  
-  Below are some of the most common DNS records:
+DNS, as earlier explained, helps resolve hostnames to IP addresses and vice versa. To achieve this, DNS uses different types of `resource records` that serve specific purposes. Below are some of the most common DNS records:
 
 ## Common DNS Records  
 
@@ -38,7 +36,7 @@ The goal of this lab was to install and configure DNS and DHCP, create the neces
 
 **Figure shows a forward record**
 
-- I set up a reverse lookup zone just out of curiosity, it’s not required for a basic lab, but it’s fun to see how IPs can flip back into names, like when I will explore Internet Information Serive (IIS)
+I set up a reverse lookup zone just out of curiosity, it’s not required for a basic lab, but it’s fun to see how IPs can flip back into names, like when I will explore Internet Information Serive (IIS)
 
 ![alt text](screenshots/03-reverse-lookup.png)
 
@@ -46,16 +44,15 @@ The goal of this lab was to install and configure DNS and DHCP, create the neces
 
 ### Step 2 DHCP Configuration
 
-- DHCP stands for Dynamic Host Configuration Protocol. It allows for automatic
-IP assignment which reduces manual efort and potential errors. It does this in a process called `DORA`
-
-- `Discover:` Here, when a client device joins the network, it sends a broadcast requesting for an IP address.
+- DHCP stands for Dynamic Host Configuration Protocol. It allows for automatic IP assignment which reduces manual efort and potential errors. It does this in a process called `DORA`
+  
+- `Discover`: Here, when a client device joins the network, it sends a broadcast requesting for an IP address.
 
 - The DHCP server responds with an `Offer` of the IP configurations (IP, subnet mask, gateway and other information)
 
-- `Request:` Here, the Client accepts the offer from the DHCP server with a DHCP Request.
+- `Request`: Here, the Client accepts the offer from the DHCP server with a DHCP Request.
 
-- `Ack:` Finaly the DHCP asigns the IP information to the client.
+- `Ack`: Finaly the DHCP asigns the IP information to the client.
 
 Below are the steps to configure a DHCP Server
 
@@ -73,44 +70,41 @@ Below are the steps to configure a DHCP Server
 
 ### Step 2 Configure DHCP
 
-- On the top right in Sever manager, clicked on `Tools` then `DHCP`. Then right clicked on IPv4 and selected `New scope`.
+On the top right in Sever manager, clicked on `Tools` then `DHCP`. Then right clicked on IPv4 and selected `New scope`.
 
 ![alt text](<screenshots/06-DHCP-scope definition.png>)
 
 **Figure shows scope definition**
 
-- Next, added address range:
-
-- 192.168.1.1 - 192.168.1.100
+- Next, added address range: `192.168.1.1 - 192.168.1.100`
 
 ![alt text](screenshots/07-DHCP-address-range.png)
 
 **Figure shows IP address range**
 
-- The next step was the exclusion list. This list will consist of IP addresses that will not be assigned to clients by the DHCP server.
-- 192.168.1.1 - 192.168.1.20
+- The next step was the exclusion list. This list will consist of IP addresses that will not be assigned to clients by the DHCP server. `192.168.1.1 - 192.168.1.20`
 
 ![alt text](screenshots/08-DHCP-exclusion-range.png)
 
 **Figure shows the exclusion list**
 
-- Finally, after completing the DHCP set-up wizard, a new scope was created successfully.
+Finally, after completing the DHCP set-up wizard, a new scope was created successfully.
 
 ![alt text](screenshots/09-DHCP-configured.png)
 
 **Figure shows new scope**
 
-> `Note:` At this point I took a snapshot of my Windows server.
+> `Note`: At this point I took a snapshot of my Windows server.
 
 ### Step 3 Client Testing
 
-- I  verified that the Windows 11 client successfully joined the domain.
+I  verified that the Windows 11 client successfully joined the domain.
 
 ![alt text](screenshots/10-successfully-joined-DC.png)
 
 **Figure shows client was joined to domain successfully**
 
-- Next I confirmed the client received a DHCP-assigned IP from the server (ipconfig /all).
+Next I confirmed the client received a DHCP-assigned IP from the server (ipconfig /all).
 
 ![alt text](screenshots/11-win-networkp-config.png)
 
@@ -120,7 +114,7 @@ Below are the steps to configure a DHCP Server
 
 **The image above shows the newly assigned IP to the client by the Dhcp server.**
 
-- I made sure the name resolution worked using nslookup 9quid.local.
+I made sure the name resolution worked using `nslookup 9quid.local`.
 
 ![alt text](screenshots/13.nslookup-command.png)
 
@@ -198,10 +192,10 @@ This worked for a short while, but then the setup broke. To separate domain traf
 
 ### 1. Separate Roles for NICs
 
-- **Host-Only adapter** → for AD, DNS, and DHCP.  
+- **Host-Only adapter** -> for AD, DNS, and DHCP.  
   - Static IP on the DC `192.168.1.9`.  
   - Clients get IPs from this subnet.  
-- **NAT adapter** → only for internet access.  
+- **NAT adapter** -> only for internet access.  
 
 ### 2. Stop NAT NIC from Registering in DNS
 
@@ -232,9 +226,9 @@ On the client, ran:
 
 To fix DNS resolution issues on the client, I manually adjusted the **network interface metrics**:
 
-- **Host-Only adapter** → set metric to a `lower value` `5`.  
+- **Host-Only adapter** -> set metric to a `lower value` `5`.  
 
-- **NAT adapter** → set metric to a `higher value` `50`.  
+- **NAT adapter** -> set metric to a `higher value` `50`.  
 
 This setting tells Windows:
 
