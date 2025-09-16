@@ -1,41 +1,50 @@
-# Active Directory Lab - Windows Server 2022
+# Windows Server 2022 Lab: Active Directory & Core IT Services
 
-This was the very first project in my journey into the world of IT. I’ve practiced it many times, both by following online tutorials and by trying it on my own. Some days everything works smoothly, and other days leave you scratching your head especially when it comes to network connectivity. But that’s all part of the journey, and I’m gradually embracing it, and you should too!. <br />
+This project simulates a small organizational network to gain hands-on experience with Windows Server 2022 administration, Active Directory Domain Services (AD DS), DNS/DHCP configuration, file and print services, and PowerShell automation. Completed in a personal virtual lab environment, it demonstrates practical skills in user and group management, network configuration, and troubleshooting, all of which are applicable to entry-level IT and helpdesk roles.
 
-## Overview & Lab Goals
+## Project Objectives / Skills Demonstrated
 
-This project simulates a small organizational network to practice Active Directory management. Key objectives:
+This project showcases practical experience with the following:
 
-- Installed and configure Windows Server 2022
-- Set up Active Directory Domain Services (AD DS), DNS, and DHCP
-- Create and manage users, groups, and organizational units (OUs)
-- Joined a Windows 11 client to the domain
-- Optionally join Ubuntu Server/Desktop and Kali Linux clients
-- Configured network file shares and basic Group Policies
+- Configured **Windows Server 2022** and promoted a **Domain Controller**  
+- Implemented **Active Directory Domain Services (AD DS), DNS, and DHCP** for a small network  
+- Created and managed **users, groups, and organizational units (OUs)**  
+- Joined a **Windows 11 client** to the domain  
+- Configured **file shares, Group Policies, IIS web services, and print services**  
+- Automated routine tasks using **PowerShell scripts**  
+-Explored optional **Ubuntu Desktop integration** to learn cross-platform authentication  
+- Practiced **network troubleshooting and IT support skills**  
 
 
 ### Course Reference:
-This lab follows concepts from *Introduction to Windows Server 2016 for Beginners* by Alton, focusing on AD DS setup, DNS/DHCP configuration, and core server management.
+This lab follows concepts from **Introduction to Windows Server 2016 for Beginners** by Alton, focusing on AD DS setup, DNS/DHCP configuration, User Access Management and core server management.
 
 
-### Skills Gained
+## Security Skills Gained
 
-- **Windows Server Administration:** Installing and configuring Windows Server 2022  
-- **Active Directory Management:** Users, groups, OUs, client joins  
-- **Networking Services:** DNS and DHCP configuration for domain clients  
-- **Identity & Access Management:** Permissions, password resets, and Group Policies  
-- **Cross-Platform Integration (Optional):** Ubuntu and Kali clients in AD  
-- **IT Support & Troubleshooting:** Resolving authentication and network issues  
-- **Virtualization:** Using VMware for lab environments
+- **Identity & Access Management (IAM):** Managed users, groups, and OUs; enforced password policies and account lockouts to protect against unauthorized access.  
+- **Patch Management & Endpoint Security:** Configured WSUS to deploy updates and reduce vulnerabilities across domain-joined clients.  
+- **Service & Network Hardening:** Secured IIS web services and intranet communication using certificates issued by AD CS.  
+- **Policy Implementation & Compliance:** Applied Group Policy Objects (GPOs) to enforce security standards and organizational policies.  
+- **Foundational PKI & Encryption Knowledge:** Installed and configured Active Directory Certificate Services, issued domain certificates, and learned certificate-based authentication for secure internal communications.  
+
+## General IT Skills Gained
+
+- **System Installation & Configuration:** Windows Server 2022, Windows 11 clients, DNS, DHCP, IIS, AD CS  
+- **Active Directory & User Management:** Users, groups, OUs, permissions, role-based access  
+- **Networking & Troubleshooting:** DNS, DHCP, connectivity, domain join issues  
+- **File & Print Services Management:** Shared folders, NTFS permissions, network printers  
+- **Automation & Scripting:** PowerShell for repetitive tasks and user management  
+- **Cross-Platform Awareness:** Ubuntu Desktop AD exploration  
+- **Documentation & Organization:** Maintaining configs, screenshots, and structured lab files  
+- **Problem-Solving:** Diagnosing and resolving network, authentication, and service issues
 
 ### Downloads & Resources
 
 **Operating Systems** (official sources recommended):
 
 - [Windows Server 2022](https://go.microsoft.com/fwlink/p/?linkid=2195333)  
-- [Windows 11](https://www.microsoft.com/en-us/software-download/windows11)  
-- [Kali Linux](https://www.kali.org/get-kali/#kali-installer-images)  
-- [Ubuntu Server](https://ubuntu.com/download/server)  
+- [Windows 11](https://www.microsoft.com/en-us/software-download/windows11) 
 - [Ubuntu Desktop](https://ubuntu.com/download/desktop/thank-you?version=24.04.3&architecture=amd64&lts=true)
 
 **Virtualization Software:**  
@@ -47,102 +56,35 @@ This lab follows concepts from *Introduction to Windows Server 2016 for Beginner
 
 The project is organized into step-specific folders containing screenshots, scripts, or configuration files for each lab task:<br />
 
-**ActiveDirectory-Lab-WS2022/**
-
-**├─ docs/<br />**
-&nbsp;&nbsp;&nbsp;&nbsp;└─ network-diagram.png
-
-README.md      
-**[1. Server-Setup/](./1.Server-Setup/README.md) <br />**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md                
-&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/          
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ server-install.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ server-nic.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; └─ roles-features.png<br />
-
-**[2. AD-DS-Config/](./2.AD-DS-Config/README.md) <br />**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md                 
-&nbsp;&nbsp;&nbsp;&nbsp;├─ screenshots/<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─dc-promotion.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ ad-ds-config.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; └─ ad-users-groups.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp;└─ configs/<br />
-&nbsp;&nbsp;&nbsp;&nbsp; └─ ad-ds-backup.txt<br />
-
-**[3. DNS-DHCP-Config/](./3.DNS-DHCP/README.md)<br />**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md                
-&nbsp;&nbsp;&nbsp;&nbsp;├─ dhcp-config-export.txt<br />
-&nbsp;&nbsp;&nbsp;&nbsp;├─ dns-zone-export.txt<br />
-&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  ├─ server-nic.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  ├─ dhcp-scope.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  ├─ dns-zone.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  └─ nslookup.png<br />
-
-**[4. User-Access-Management/](./4.Users-Groups-OUs/README.md)<br />**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md           
-&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  ├─ ou-structure.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  ├─ group-membership.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  └─ delegated-permissions.png<br />
-
-**[5. Windows-11-Client/](./5.Windows-11-client/README.md)<br />**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md           
-&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ win11-join.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ win11-dhcp.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; └─ win11-nslookup.png<br />
-
-**[6. File-Server-Management/](./6.File-Share-GPO/README.md)<br />**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md             
-&nbsp;&nbsp;&nbsp;&nbsp;├─ configs/<br />
-&nbsp;&nbsp;&nbsp;&nbsp; └─ gpo-export.txt<br />
-&nbsp;&nbsp;&nbsp;&nbsp; └─ screenshots/<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ file-share.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ gpo-desktop-bg.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; └─ gpo-logon-banner.png<br />
-
-**[7. IIS & Print-Services/<br />](./7.IIS-Print-Services/README.md)**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md              
-&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ iis-install.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ website-config.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; └─ printer-deploy.png<br />
-
-**[8.Server-Updates-Backup/<br />](./9.RDP,WSUS,Backup/README.md)**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md     
-&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ rdp-config.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; ├─ wsus-console.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp; └─ backup-snapshot.png<br />
-
-**[9. PowerShell-Scripts/<br />](./10.PowerShell-Scripts/README.md)**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md            
-&nbsp;&nbsp;&nbsp;&nbsp;└─ scripts/<br />
-&nbsp;&nbsp;&nbsp;&nbsp;├─ add-ad-user.ps1<br />
-&nbsp;&nbsp;&nbsp;&nbsp;├─ manage-groups.ps1<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  └─ manage-ous.ps1<br />
-
-**[10. Linux-Clients/<br />](./11.linux-Clients/README.md)**
-&nbsp;&nbsp;&nbsp;&nbsp;├─ README.md             
-&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  ├─ ubuntu-join.png<br />
-&nbsp;&nbsp;&nbsp;&nbsp;  └─ kali-testing.png<br />
-
-**[11. Lessons-Learned/<br />](./12.Lessons-Learned/README.md)**
-&nbsp;&nbsp;&nbsp;&nbsp;├─README.md                 
-&nbsp;&nbsp;&nbsp;&nbsp;└─ screenshots/            
-&nbsp;&nbsp;&nbsp;&nbsp; └─ example-issue.png
-
-
-***Each folder contains screenshots and resources relevant to that step.***
-
-
 ### Lab Environment
+
 | Device/VM | OS                  | Role                                 |
 |-----------|-------------------|-------------------------------------|
 | Server    | Windows Server 2022 | Domain Controller (AD DS, DNS, DHCP) |
 | Client 1  | Windows 11          | Domain-joined workstation            |
-| Client 2  | Ubuntu Server       | Optional Linux domain client         |
-| Client 3  | Ubuntu Desktop      | Optional Linux domain client         |
-| Client 4  | Kali Linux          | Optional Linux domain client         |
+| Client 2  | Ubuntu Desktop      | Linux client (exploratory)        |
+
+### Linux Client Exploration
+
+ An Ubuntu Desktop client was included in the lab as a curiosity-driven, exploratory exercise to see how a Linux system could interact with Active Directory.
+
+ This was not part of core lab requirements, and I am still learning about Linux integration. The goal was to explore cross-platform concepts and gain a better understanding of how non-Windows clients could fit into a domain environment. I aim to improve these skills in the future as I gain more experience.
+
+### Network Diagram
+
+![alt text](<Docs/WinServer_AD.drawio (2).png>)
+
+# Table of Contents
+
+1. [Server Setup](#01-server-setup)
+2. [Active Directory Setup](#02-active-directory-setup)
+3. [DNS and DHCP Configuration](#03-dns-and-dhcp-configuration)
+4. [User Access Management](#04-user-access-management)
+5. [Windows 11 AD Join](#05-windows11-ad-join)
+6. [File Server Management](#06-file-server-management)
+7. [IIS and Print Services Configuration](#07-iis-and-print-services-configuration)
+8. [WSUS and Windows Backup Lab](#08-wsus-and-windows-backup-lab)
+9. [Ubuntu AD Integration](#09-ubuntu-ad-integration)
+10. [PowerShell Scripts](#10-powershell-scripts)
+
+**Each folder contains screenshots and resources relevant to that step.**
