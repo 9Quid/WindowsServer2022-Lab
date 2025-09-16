@@ -76,7 +76,7 @@ The project is organized into step-specific folders containing screenshots, scri
 
 # Table of Contents
 
-1. [Server Setup](01-server-setup)
+1. [Server Setup](https://github.com/9Quid/WindowsServer2022-Lab/commit/c2239b0172f8bd18591116220811d24cd71dc23b)
 2. [Active Directory Setup](#02-active-directory-setup)
 3. [DNS and DHCP Configuration](#03-dns-and-dhcp-configuration)
 4. [User Access Management](#04-user-access-management)
