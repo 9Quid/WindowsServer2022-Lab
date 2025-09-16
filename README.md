@@ -76,7 +76,7 @@ The project is organized into step-specific folders containing screenshots, scri
 
 # Table of Contents
 
-1. [Server Setup](#01-server-setup)
+1. [Server Setup](01-server-setup)
 2. [Active Directory Setup](#02-active-directory-setup)
 3. [DNS and DHCP Configuration](#03-dns-and-dhcp-configuration)
 4. [User Access Management](#04-user-access-management)
