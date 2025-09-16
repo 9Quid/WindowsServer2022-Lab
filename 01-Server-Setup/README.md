@@ -43,7 +43,7 @@ I then confirmed configurations were applied by running ipconfig command.
 
 ### Step 3: Rename Server & Join Domain Preparation
 
-Here, I renamed the server: `9Quid-Server`
+Here, I renamed the server: `9QUID-SERVER`
 
 ![alt text](screenshots/07-rename-Server.png)
 
