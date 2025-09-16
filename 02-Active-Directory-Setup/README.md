@@ -2,21 +2,24 @@
 
 ## Introduction
 
-In this lab, I set up Active Directory Domain Services on Windows Server 2022. I installed the AD DS role, promoted the server to a Domain Controller, and verified functionality by creating and testing an Organizational Unit (OU).
+In this lab, I set up Active Directory Domain Services (AD DS) on Windows Server 2022.
 
+AD DS is the core directory service for Windows domain networks. It provides centralized management of users, computers, groups, and security policies, and it authenticates and authorizes all users and devices within a domain.
+
+I installed the AD DS role, promoted the server to a Domain Controller, and verified functionality by creating and testing an Organizational Unit (OU).
 ## Objectives
 
 The goal of this lab was to install and configure Active Directory Domain Services (AD DS), promote the server to a Domain Controller, and confirm its functionality in the domain environment..
 
 ### Step 1: Install Roles & Features
 
-- Opened Server Manager, clicked on `Manage` selected `Add Roles and Features`.
+Opened Server Manager, clicked on `Manage` selected `Add Roles and Features`.
 
 ![alt text](<../2.AD DS Config/screenshots/01-roles & features.png>)
 
 **Figure shows added roles and features**
 
-- Then completed the wizard and installed `AD DS`.
+Then completed the wizard and installed `AD DS`.
 
 ![alt text](<../2.AD DS Config/screenshots/02-AD DS- installed.png>)
 
@@ -25,6 +28,7 @@ The goal of this lab was to install and configure Active Directory Domain Servic
 ### Step 2: Promote Server to Domain Controller
 
 After installing AD DS, I went on to promote the server to a Domain Controller.
+
 > **Note:** At this stage, I took a snapshot of the system to preserve its current state before promotion.
 
 ![alt text](<../2.AD DS Config/screenshots/03-AD DS-promotion.png>)
@@ -33,7 +37,7 @@ After installing AD DS, I went on to promote the server to a Domain Controller.
 
 ### Step 3: Verify Server has been promoted to Domain Controller
 
-- At this stage after promoting the server to Domain Controller, the server rebooted and all modifications were applied successfully.
+At this stage after promoting the server to Domain Controller, the server rebooted and all modifications were applied successfully.
 
 ![alt text](<../2.AD DS Config/screenshots/04-promoted-server.png>)
 
