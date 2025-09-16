@@ -62,7 +62,7 @@ On the Server Manager dashbord, I went to the top right click on `Manage` then `
 
 ![alt text](screenshots/04-DHCP-installation-wizard.png)
 
-**Figureshows DHCP setup wizard**
+**Figure shows DHCP setup wizard**
 
 ![alt text](screenshots/05-DHCP-server-installed.png)
 
