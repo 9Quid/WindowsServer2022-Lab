@@ -16,14 +16,7 @@ In this lab, I focused on managing users, groups, organizational units (OUs), an
 
 The goal of this lab was to practice user and group management in Active Directory, create and organize OUs, configure home folders, and apply Group Policy Objects (GPOs) to enforce domain-wide policies.
 
-### Quick Navigation
-- [Creating and Managing Users](./step-1-creating-and-managing-users)  
-- [Groups](./step-2-creating-and-adding-users-to-groups)  
-- [Home Folders](./creating-and-managing-ad-user-home-folders)  
-- [Organizational Units](./creating-and-organizing-ous)  
-- [Group Policy](./group-policy)  
-
-### Step 1 Creating and Managing Users
+**Step 1 Creating and Managing Users**
 
 Here, I created a few users, setup their passwords and applied security settings such as; `users must change passwords at next log on`, `disabling accounts`, `unlocking accounts` and `protecting user accounts from accidental deletion`.
 
