@@ -23,7 +23,7 @@ The goal of this lab was to practice user and group management in Active Directo
 - [Organizational Units](./creating-and-organizing-ous)  
 - [Group Policy](./group-policy)  
 
-**Step 1 Creating and Managing Users**
+### Step 1 Creating and Managing Users
 
 Here, I created a few users, setup their passwords and applied security settings such as; `users must change passwords at next log on`, `disabling accounts`, `unlocking accounts` and `protecting user accounts from accidental deletion`.
 
