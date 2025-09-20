@@ -133,13 +133,13 @@ I then navigated to: `Computer Configuration` -> `Windows Settings` -> `Security
 
 Configured Interactive logon: Message title for users attempting to log on -> `Property of 9Quid Security`.
 
-![alt text](<screenshots/13.interactive logon message.png>)
+![alt text](screenshots/13.interactive-logon.png)
 
 **The figure above shows the interactive logon message setting.**
 
-`Interactive logon`: **Message text for users attempting to log on → This computer is the property of 9Quid Security. Use is restricted to authorized personnel for official buisness purposes, Unauthorized access or use may result in disciplinary action and/or prosecution. Users should have no expectations of privacy as activities maybe monitored and logged.**
+`Interactive logon`: Message text for users attempting to log on ->  ***This computer System is the property of 9Quid Security. Access is restricted to authorized personnel for official buisness purposes. Unauthorized use or access is srtictly prohibited and may result in disciplinary action and/or prosecution. Users should have no expectations of privacy.***
 
-![alt text](screenshots/14.logon-barnner.png)
+![alt text](screenshots/14.logon-banner.png)
 
 **The figure above shows the logon banner displayed prior to authentication.**
 
