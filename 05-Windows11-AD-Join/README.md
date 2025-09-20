@@ -14,61 +14,60 @@ The goal of this lab was to join a Windows client machine to the Active Director
 
 Installed Windows 11 Pro on VMware with `4 GB RAM`, `2 CPUs`, and `64 GB disk`.
 
-![alt text](https://github.com/9Quid/WindowsServer2022-Lab/blob/main/5.Windows%2011%20client/screenshots/01-Win11-vmware-resource-allocation%20-%20Copy.png)
+![alt text](<screenshots/01-Win11-vmware-resource-allocation - Copy.png>)
 
 **The image shows the set-up in vmware**
 
 Next, I selected `Windows 11 Pro for workstation`.
 
-![alt text](https://github.com/9Quid/WindowsServer2022-Lab/blob/main/5.Windows%2011%20client/screenshots/02-win11-version-installation%20-%20Copy.png)
-
+!![alt text](<screenshots/02-win11-version-installation - Copy.png>)
 **The image shows the win11 version**
 
 I then completed the installation setup and confirmed the client booted successfully.
 
-![alt text](https://github.com/9Quid/WindowsServer2022-Lab/blob/main/5.Windows%2011%20client/screenshots/04-win11-installed%20-%20Copy.png)
+![alt text](<screenshots/04-win11-installed - Copy.png>)
 
-**Image shows win11 successully installed**
+**The image shows win11 successully installed**
 
 ### Step 2: Configure Network Settings
 
-- I configured DNS to point to `192.168.1.9`.
+I configured DNS to point to `192.168.1.9`.
 
-![alt text](https://github.com/9Quid/WindowsServer2022-Lab/blob/main/5.Windows%2011%20client/screenshots/07-win11-dns-config%20-%20Copy.png)
+![alt text](<screenshots/07-win11-dns-config - Copy.png>)
 
-**image shows dns settings**
+**The image shows dns settings**
 
-- I verified connectivity using ping `192.168.1.9` and ping `9quid.local`.
+I verified connectivity using ping `192.168.1.9` and ping `9quid.local`.
 
 ![alt text](screenshots/14.successfull-communication-with-DC.png)
 
-**image shows successfull communication with DC**
+**The image shows successfull communication with DC**
 
 ### Step 3: Join Client to the Domain
 
-- I opened System Properties → Changed Computer Name/Domain to `9Quid-11` → selected Domain.
+I opened System Properties → Changed Computer Name/Domain to `9Quid-11` → selected Domain.
 
 ![alt text](<screenshots/08-joined-workgroup to DC - Copy.png>)
 
-**image shows successfull name change**
+**The image shows successful name change**
 
-- I entered `9quid.local` and authenticated with the Domain Admin account.
+I entered `9quid.local` and authenticated with the Domain Admin account.
 
 ![alt text](<screenshots/09-successfully-joined-DC - Copy.png>)
 
-**image shows win11 has been joined successfully**
+**The image shows win11 has been joined successfully**
 
-- I restarted the machine to complete the domain join.
+I restarted the machine to complete the domain join.
 
 ### Step 4: Verify Domain Login
 
-- At login screen, I selected Other user and signed in with domain account `9quid\cbrest`.
+At the login screen, I selected Other user and signed in with domain account `9quid\cbrest`.
 
-- I confirmed the login was successful and profile created.
+I confirmed the login was successful and profile created.
 
 ![alt text](screenshots/15.user-log-in.png)
 
-**image shows successfull log in**
+**The image shows successful log in**
 
 ### Step 5: Test Group Policy Application
 
@@ -78,9 +77,7 @@ I then completed the installation setup and confirmed the client booted successf
 
 ![alt text](screenshots/19-confirmed-logon-banner.png)
 
-**Image shows group policy was applied successfully**
-
-## Notes
+**The image shows group policy was applied successfully**
 
 ### Key Settings
 
