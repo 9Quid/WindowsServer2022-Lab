@@ -2,21 +2,50 @@
 
 This project simulates a small organizational network to gain hands-on experience with Windows Server 2022 administration, Active Directory Domain Services (AD DS), DNS/DHCP configuration, file and print services, and PowerShell automation. Completed in a personal virtual lab environment, it demonstrates practical skills in user and group management, network configuration, and troubleshooting, all of which are applicable to entry-level IT and helpdesk roles.
 
-## Project Objectives / Skills Demonstrated
+
+ ## Project Objectives / Skills Demonstrated
 
 This project showcases practical experience with the following:
 
-- Configured **Windows Server 2022** and promoted a **Domain Controller**  
-- Implemented **Active Directory Domain Services (AD DS), DNS, and DHCP** for a small network  
-- Created and managed **users, groups, and organizational units (OUs)**  
-- Joined a **Windows 11 client** to the domain  
-- Configured **file shares, Group Policies, IIS web services, and print services**  
-- Automated routine tasks using **PowerShell scripts**  
--Explored optional **Ubuntu Desktop integration** to learn cross-platform authentication  
-- Practiced **network troubleshooting and IT support skills**  
+### Windows Server 2022 Core Services
 
+- Promoted a domain controller, configured DNS & DHCP  
+- Created and managed users, groups, and OUs in Active Directory  
+- Deployed and tested Group Policy Objects (GPOs) for centralized management  
+
+### Client & Resource Management
+
+- Joined Windows 11 clients to the domain  
+- Configured file shares and print services with appropriate permissions  
+- Deployed IIS for internal web hosting with SSL/TLS certificates via AD CS  
+
+### Patch & Update Management
+
+- Installed and configured Windows Server Update Services (WSUS) for centralized patching  
+- Practiced staged rollout of security updates to test and production clients  
+
+### Cross-Platform Integration
+
+- Integrated Ubuntu into Active Directory using Kerberos and SSSD  
+- Tested AD-authenticated access to Windows file shares from Linux  
+
+### Helpdesk Simulation
+
+- Installed and configured **osTicket** to simulate IT support ticketing workflows  
+- Practiced troubleshooting by logging, resolving, and documenting test issues  
+
+### Security Practices
+
+- Implemented least-privilege access, encryption via SSL/TLS, and centralized authentication  
+- Understood the role of DNS, certificates, and patching in securing enterprise environments  
+
+### Troubleshooting & Documentation
+
+- Used tools like **Event Viewer, PowerShell, nslookup, ping, gpresult** for problem-solving  
+- Documented each lab in a structured format: objectives, step-by-step setup, troubleshooting, and lessons learned  
 
 ### Course Reference:
+
 This lab follows concepts from **Introduction to Windows Server 2016 for Beginners** by Alton, focusing on AD DS setup, DNS/DHCP configuration, User Access Management and core server management.
 
 
@@ -34,7 +63,7 @@ This lab follows concepts from **Introduction to Windows Server 2016 for Beginne
 - **Active Directory & User Management:** Users, groups, OUs, permissions, role-based access  
 - **Networking & Troubleshooting:** DNS, DHCP, connectivity, domain join issues  
 - **File & Print Services Management:** Shared folders, NTFS permissions, network printers  
-- **Automation & Scripting:** PowerShell for repetitive tasks and user management  
+- **Automation & Scripting:** Basic PowerShell for repetitive tasks and user management  
 - **Cross-Platform Awareness:** Ubuntu Desktop AD exploration  
 - **Documentation & Organization:** Maintaining configs, screenshots, and structured lab files  
 - **Problem-Solving:** Diagnosing and resolving network, authentication, and service issues
@@ -62,13 +91,13 @@ The project is organized into step-specific folders containing screenshots, scri
 |-----------|-------------------|-------------------------------------|
 | Server    | Windows Server 2022 | Domain Controller (AD DS, DNS, DHCP) |
 | Client 1  | Windows 11          | Domain-joined workstation            |
-| Client 2  | Ubuntu Desktop      | Linux client (exploratory)        |
+| Client 2  | Ubuntu Desktop      | Linux client Intergration        |
 
-### Linux Client Exploration
+### Linux Client Intergration
 
  An Ubuntu Desktop client was included in the lab as a curiosity-driven, exploratory exercise to see how a Linux system could interact with Active Directory.
 
- This was not part of core lab requirements, and I am still learning about Linux integration. The goal was to explore cross-platform concepts and gain a better understanding of how non-Windows clients could fit into a domain environment. I aim to improve these skills in the future as I gain more experience.
+ The goal was to explore cross-platform concepts and gain a better understanding of how non-Windows clients could fit into a domain environment. I aim to improve these skills in the future as I gain more experience.
 
 ### Network Diagram
 

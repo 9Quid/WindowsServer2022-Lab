@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, I installed a Windows 11 client, configure its network settings, and join it to the Active Directory domain. I then verified that domain user accounts could log in and that Group Policies were applied correctly.
+In this lab, I installed a Windows 11 client, configured its network settings, and joined it to the Active Directory domain. I then verified that domain user accounts could log in and that Group Policies were applied correctly.
 
 **Domain Join:** The process of connecting a computer to an Active Directory domain so it becomes part of a centrally managed network.
 
@@ -12,19 +12,19 @@ The goal of this lab was to join a Windows client machine to the Active Director
 
 ### Step 1: Install Windows 11
 
-- Installed Windows 11 Pro on VMware with `4 GB RAM`, `2 CPUs`, and `64 GB disk`.
+Installed Windows 11 Pro on VMware with `4 GB RAM`, `2 CPUs`, and `64 GB disk`.
 
 ![alt text](https://github.com/9Quid/WindowsServer2022-Lab/blob/main/5.Windows%2011%20client/screenshots/01-Win11-vmware-resource-allocation%20-%20Copy.png)
 
 **The image shows the set-up in vmware**
 
-- Next, I selected `Windows 11 Pro for workstation`.
+Next, I selected `Windows 11 Pro for workstation`.
 
 ![alt text](https://github.com/9Quid/WindowsServer2022-Lab/blob/main/5.Windows%2011%20client/screenshots/02-win11-version-installation%20-%20Copy.png)
 
 **The image shows the win11 version**
 
-- I then completed the installation setup and confirmed the client booted successfully.
+I then completed the installation setup and confirmed the client booted successfully.
 
 ![alt text](https://github.com/9Quid/WindowsServer2022-Lab/blob/main/5.Windows%2011%20client/screenshots/04-win11-installed%20-%20Copy.png)
 
