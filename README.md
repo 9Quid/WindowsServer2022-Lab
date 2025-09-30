@@ -96,8 +96,6 @@ The project is organized into step-specific folders containing screenshots, scri
 
 ![alt text](<Docs/WinServer_AD.drawio (3).png>)
 
-# Table of Contents
-
 ## Table of Contents
 
 | Lab # | Title                                       | Core Concepts Covered                                 |
