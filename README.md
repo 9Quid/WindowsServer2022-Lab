@@ -94,7 +94,7 @@ The project is organized into step-specific folders containing screenshots, scri
 
 ### Network Diagram
 
-![alt text](<Docs/WinServer_AD.drawio (6).png>)
+![alt text](<Docs/WinServer_AD (1).jpg>)
 
 ## Table of Contents
 
