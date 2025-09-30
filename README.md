@@ -100,18 +100,18 @@ The project is organized into step-specific folders containing screenshots, scri
 
 ## Table of Contents
 
-| Lab # | Topic                                       | Key Skills                                            |
+| Lab # | Title                                       | Core Concepts Covered                                 |
 |-------|---------------------------------------------|-------------------------------------------------------|
-| 01    | Server Setup                                | Virtualization, OS Installation, Basic Networking     |
-| 02    | Active Directory Setup                      | AD DS Promotion, Domain Creation                      |
-| 03    | DNS and DHCP Configuration                  | DNS Zones, DHCP Scopes                                |
-| 04    | User Access Management                      | OUs, Users, Groups, GPOs                              |
-| 05    | Windows 11 AD Join                          | Client Onboarding, Domain Join                        |
-| 06    | File Server Management                      | Share/NTFS Permissions, Mapped Drives                 |
-| 07    | IIS and Print Services                      | Web Server, PKI, SSL, Print Management                |
-| 08    | WSUS and Windows Backup Lab                 | Patch Management, Disaster Recovery                   |
-| 09    | Ubuntu AD Integration                       | SSSD, Kerberos, Cross-Platform Auth                   |
-| 10    | PowerShell Scripts                          | Automation, Helpdesk Efficiency                       |
-| 11    | osTicket Helpdesk                           | ITSM, Ticketing Systems, Web Stack Deployment         |
+| 01    | [Server Setup](./01-Server-Setup/)                                | VM Creation, OS Install, Basic Networking             |
+| 02    | [Active Directory Setup](./02-Active-Directory-Setup/)                      | AD DS, Domain Controller Promotion, OUs               |
+| 03    | [DNS and DHCP Configuration](./03-DNS-and-DHCP-Configuration/)                  | Forward/Reverse Lookups, DHCP Scopes                  |
+| 04    | [User Access Management](./04-User-Access-Management/)                      | Users, Groups, GPOs                                   |
+| 05    | [Windows 11 AD Join](./05-Windows11-AD-Join/)                          | Domain Join, Client Verification                      |
+| 06    | [File Server Management](./06-File-Server-Management/)                      | Share/NTFS Permissions, Mapped Drives                 |
+| 07    | [IIS and Print Services](./07-IIS-and-Print-Services-Configuration/)                      | Web Server, PKI, SSL, Print Management                |
+| 08    | [WSUS and Windows Backup Lab](./08-WSUS-and-Windows-Backup-Lab/)                 | Patch Management, Disaster Recovery                   |
+| 09    | [Ubuntu AD Integration](./09-Ubuntu-AD-Intergration/)                       | SSSD, Kerberos, Cross-Platform Auth                   |
+| 10    | [PowerShell Scripts](./10-PowerShell-Scripts/)                          | Automation, Helpdesk Efficiency                       |
+| 11    | [osTicket Helpdesk](./11-osTicket-Helpdesk/)                           | ITSM, Ticketing Systems, Web Stack Deployment         |
 
 **Each folder contains screenshots and resources relevant to that step.**
