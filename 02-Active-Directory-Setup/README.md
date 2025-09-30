@@ -24,7 +24,7 @@ Then completed the wizard and installed `AD DS`.
 
 ![alt text](<screenshots/02-AD DS- installed.png>)
 
-***The figure above shows the completed installation of AD DS***
+***The figure above shows the successful installation of the AD DS role***
 
 ### Step 2: Promote Server to Domain Controller
 
@@ -59,7 +59,7 @@ To ensure the Domain Controller is fully working , I created an Organizational U
 - `Get-ADDomain`
 - `Get-ADForest`
 
-![alt text](<../2.AD DS Config/screenshots/06.DC-functionality.png>)
+![alt text](screenshots/06.DC-functionality.png)
 
 **Figure shows DC fully functioning**
 

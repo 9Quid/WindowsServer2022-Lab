@@ -53,7 +53,7 @@ I verified network connectivity by pinging the DNS server and the loopback addre
 
 ![alt text](<screenshots/08-ping-loopback & DNS.png>)
 
-**Figure shows Successfull ping to the loopback & DNS**
+**The figure above shows cuccessfull ping to the loopback & DNS**
 
 ## Key Settings, Commands & Troubleshooting Notes
 
