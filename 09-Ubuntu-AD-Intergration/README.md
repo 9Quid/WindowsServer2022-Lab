@@ -9,20 +9,20 @@ The objective of this lab was to configure the Ubuntu client’s networking to e
 
 ## Step 1: Prepare Linux Client
 
-Here, I created a vm and configured the hardware and network requirements on vmware.
+Here, I created a vm, configured the hardware and network requirements on vmware.
 
 **Environment Setup**: Ubuntu 22.04 LTS on VMware 
 **2 network adapters**: NAT -> Internet access Host-Only -> Internal domain communication.
 
 ![alt text](Screenshots/vmware-hardware-config.png)
 
-**The figure above shows vmware configuration**
+***The figure above shows vmware configuration***
 
 Next, I successfully installed Ubuntu on the Vm.
 
 ![alt text](Screenshots/ubuntu-successfull-installation.png)
 
-**The figure above shows the Ubuntu installation was successful.**
+***The figure above shows the Ubuntu installation was successful.***
 
 From there, I went on to Update system packages:
 
@@ -33,7 +33,7 @@ This Updates the package list and installs the latest security patches.
 
 ![alt text](Screenshots/installing-system-packages.png)
 
-**The figure above shows system packages being installed**
+***The figure above shows system packages being installed***
 
 Next, I installed troubleshooting tools:
 
@@ -56,7 +56,7 @@ Configured the DNS server for Ubuntu by editing the netplan YAML file `(/etc/net
 
 ![alt text](Screenshots/dns-config.png)
 
-**The figure above shows the DNS configuration in the YAML file**
+***The figure above shows the DNS configuration in the YAML file***
 
 then applied changes: `sudo netplan apply`
 
@@ -80,11 +80,11 @@ I then restarted chrony to apply changes
 
 **Step 3: Install Required Packages**
 
-I proceeded to joining the Ubuntu client to the  domain but first I installed some required packages. 
+I proceeded to joining the Ubuntu client to the domain but first I installed some required packages. 
 
 `sudo apt install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir -y`
 
-This command installs all the packages needed to join an Ubuntu Linux machine to an Active Directory (AD) domain and manage users from the domain. 
+This command installs all the packages needed to join an Ubuntu Linux machine to an Active Directory (AD) domain and manage users from the domain.
 These packages provide tools for domain discovery, authentication, and home directory management.
 
 ## Step 4: Discover the Domain
@@ -150,41 +150,39 @@ This allowed the Ubuntu client to access the Windows share securely using AD cre
 
 ![alt text](Screenshots/Linux-test-file.png)
 
-**The figure above shows the mounted Windows share and the test file created from Linux.**
+***The figure above shows the mounted Windows share and the test file created from Linux.***
 
 ## Key Settings Configured:
 
-- Ubuntu client network configured with static IP/DNS pointing to the AD Domain Controller (9QUID-SERVER)
+- Ubuntu client network configured with static IP/DNS pointing to the AD Domain Controller (9QUID-SERVER).
 
-- DNS and hostname verified using resolvectl, nslookup, and ping
+- DNS and hostname verified using resolvectl, nslookup, and ping.
 
-- Time synchronization set with chrony to the DC NTP server (192.168.1.9)
+- Domain join completed using realm join and SSSD configured for Kerberos authentication.
 
-- Domain join completed using realm join and SSSD configured for Kerberos authentication
-
-- PAM configured with pam_mkhomedir to auto-create home directories for AD users
+- PAM configured with pam_mkhomedir to auto-create home directories for AD users.
 
 - Permission denied: Check that the AD user has proper NTFS and Share permissions on the server.
 
 ## Difficulties Encountered:
 
-- DNS resolution issues when default route went through a different network interface
+- DNS resolution issues when default route went through a different network interface.
 
-- Initial inability to ping the DC using domain names
+- Initial inability to ping the DC using domain names.
 
-- Recognizing that the domain user prompt differs from the local user prompt
+- Recognizing that the domain user prompt differs from the local user prompt.
 
-- Time synchronization failed, unfortunately I could not get this one right. I will have to dig deeper and verify how to fix it
+- Time synchronization failed, unfortunately I could not get this one right. I will have to dig deeper and verify how to fix it.
 
 ## Troubleshooting Steps Taken:
 
-- I verified network interfaces and routing with `ip addr` and `ip route`
+- I verified network interfaces and routing with `ip addr` and `ip route`.
 
-- Tested connectivity to DC via direct IP and FQDN using ping and nc
+- Tested connectivity to DC via direct IP and FQDN using ping and nc.
 
-- Confirmed SSSD and oddjobd services were running with `systemctl status`
+- Confirmed SSSD and oddjobd services were running with `systemctl status`.
 
-- verified domain join and user recognition with realm list, id, and getent passwd
+- verified domain join and user recognition with realm list, id, and getent passwd.
 
 - Check DNS resolution with:
 
@@ -202,13 +200,13 @@ This allowed the Ubuntu client to access the Windows share securely using AD cre
 
 ## Lessons Learned:
 
-- The importance of proper DNS and routing in cross-platform authentication
+- The importance of proper DNS and routing in cross-platform authentication.
 
-- How Kerberos authentication relies on synchronized system time
+- How Kerberos authentication relies on synchronized system time.
 
-- Understanding the role of PAM and oddjob-mkhomedir in automating user environment setup
+- Understanding the role of PAM and oddjob-mkhomedir in automating user environment setup.
 
-- How to methodically troubleshoot connectivity and authentication issues in a Linux environment
+- How to methodically troubleshoot connectivity and authentication issues in a Linux environment.
 
 - Linux can authenticate directly against AD, unifying credential management.
 

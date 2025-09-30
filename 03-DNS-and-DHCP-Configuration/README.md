@@ -34,13 +34,13 @@ DNS, as earlier explained, helps resolve hostnames to IP addresses and vice vers
 
 ![alt text](<screenshots/01-Forward lookup.png>)
 
-**Figure shows a forward record**
+***The figure above shows a forward record***
 
 I set up a reverse lookup zone just out of curiosity, it’s not required for a basic lab, but it’s fun to see how IPs can flip back into names, like when I will explore Internet Information Serive (IIS)
 
 ![alt text](screenshots/03-reverse-lookup.png)
 
-**Figure shows a reverse record**
+***The figure above shows a reverse record***
 
 ### Step 2 DHCP Configuration
 
@@ -54,7 +54,7 @@ DHCP stands for Dynamic Host Configuration Protocol. It allows for automatic IP 
 
 - `Ack`: Finaly the DHCP asigns the IP information to the client.
 
-Below are the steps to configure a DHCP Server
+Below are the steps to configure a DHCP Server:
 
 ### Step 1 Install DHCP
 
@@ -62,7 +62,7 @@ On the Server Manager dashbord, I went to the top right click on `Manage` then `
 
 ![alt text](screenshots/04-DHCP-installation-wizard.png)
 
-**Figure shows DHCP setup wizard**
+***The figure above shows DHCP setup wizard***
 
 ![alt text](screenshots/05-DHCP-server-installed.png)
 
@@ -74,25 +74,25 @@ On the top right in Sever manager, clicked on `Tools` then `DHCP`. Then right cl
 
 ![alt text](<screenshots/06-DHCP-scope definition.png>)
 
-**Figure shows scope definition**
+***The figure above shows scope definition***
 
 Next, added address range: `192.168.1.1 - 192.168.1.100`
 
 ![alt text](screenshots/07-DHCP-address-range.png)
 
-**Figure shows IP address range**
+**The figure above shows IP address range**
 
 The next step was the exclusion list. This list will consist of IP addresses that will not be assigned to clients by the DHCP server. `192.168.1.1 - 192.168.1.20`
 
 ![alt text](screenshots/08-DHCP-exclusion-range.png)
 
-**Figure shows the exclusion list**
+***The figure above shows the exclusion list***
 
 Finally, after completing the DHCP set-up wizard, a new scope was created successfully.
 
 ![alt text](screenshots/09-DHCP-configured.png)
 
-**Figure shows new scope**
+***The figure above shows new scope***
 
 > `Note`: At this point I took a snapshot of my Windows server.
 
@@ -108,17 +108,17 @@ Next I confirmed the client received a DHCP-assigned IP from the server (ipconfi
 
 ![alt text](screenshots/11-win-networkp-config.png)
 
-**Figure shows Windows client initial network config.**
+***The figure above shows Windows client initial network config.***
 
 ![alt text](screenshots/12.dhcp-assigned-ip-address-to-client.png)
 
-**The image above shows the newly assigned IP to the client by the Dhcp server.**
+***The figure above shows the newly assigned IP to the client by the Dhcp server.***
 
 I made sure the name resolution worked using `nslookup 9quid.local`.
 
 ![alt text](screenshots/13.nslookup-command.png)
 
-**Figure shows nslookup command was successfull.**
+***The figure above shows name resolution was successful.***
 
 ##  Notes
 
@@ -146,7 +146,7 @@ I made sure the name resolution worked using `nslookup 9quid.local`.
 
 >## Active Directory Lab Networking Troubleshooting
 
-This guide documents the networking issues I faced while setting up an `Active Directory (AD) lab` in VMware, how I troubleshooted them, and the final working solution.  
+This guide documents the networking issues I faced while setting up an `Active Directory (AD) lab` in VMware, how I troubleshot them, and the final working solution.  
 
 ## The Initial Problem
 
@@ -197,7 +197,7 @@ This worked for a short while, but then the setup broke. To separate domain traf
 
 On the DC’s NAT NIC:
 
-- Unchecked `Register this connection’s addresses in DNS`. 
+- Unchecked `Register this connection’s addresses in DNS`.
 - Deleted the NAT IP record from `DNS Manager`.  
 - Configured DNS to `listen only on the Host-Only IP`.  
 
@@ -241,3 +241,4 @@ This setting tells Windows:
 - Use Forward/Reverse Lookup Zones and DHCP exclusions to prevent conflicts.
 
 - Always document steps and take VM snapshots before major changes.
+

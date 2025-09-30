@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, I  focused on setting up `Windows Server Update Services (WSUS)` to centrally manage and deploy updates across my Active Directory environment. Instead of each client downloading updates directly from the internet, WSUS allows updates to be downloaded once and then distributed internally which saves bandwidth and gives administrators more control.
+In this lab, I focused on setting up `Windows Server Update Services (WSUS)` to centrally manage and deploy updates across my Active Directory environment. Instead of each client downloading updates directly from the internet, WSUS allows updates to be downloaded once and then distributed internally which saves bandwidth and gives administrators more control.
 
 ## Objectives
 
@@ -10,7 +10,7 @@ The objectives of this lab was to install and configure the WSUS role on Windows
 
 **Steps 1. Prepare Storage for WSUS**
 
-- First, I added a dedicated virtual hard drive to be used for the WSUS server `20GB`
+- First, I added a dedicated `20GB` virtual hard drive to be used for the WSUS server.
 
 - In Disk Management, I initialized the new disk, created a volume, and formated it with NTFS.
 
@@ -26,7 +26,7 @@ The objectives of this lab was to install and configure the WSUS role on Windows
 
 ![alt text](screenshots/WSUS-installed.png)
 
-**The image above shows the installation succeeded**
+***The figure above shows the installation succeeded***
 
 **Step 3. Configure WSUS**
 
@@ -40,7 +40,7 @@ The objectives of this lab was to install and configure the WSUS role on Windows
 
 ![alt text](screenshots/WSUS-setup.png)
 
-**The figure shows WSUS config**
+***The figure above shows WSUS config***
 
 **Step 3. Approve and Manage Updates**
 
@@ -58,7 +58,7 @@ The objectives of this lab was to install and configure the WSUS role on Windows
 
 ![alt text](screenshots/gpo-policy.png)
 
-**Figure shows the two gpo policy configured**
+***The figure above shows the two gpo policy configured**
 
 **5. Verify Client Connectivity**
 
@@ -68,7 +68,7 @@ The objectives of this lab was to install and configure the WSUS role on Windows
 
 ![alt text](screenshots/win11-added-to-wsus.png)
 
-**The figure above shows Win 11 successfully connected**
+***The figure above shows Win 11 successfully connected***
 
 ## Key Settings, Troubleshooting, Lessons Learned
 
@@ -114,13 +114,6 @@ If clients don’t report:
 | 6 | `usoclient startscan` | Force client to immediately check for updates | Runs silently; updates should appear in WSUS shortly |
 | 7 | `wuauclt /resetauthorization /detectnow` | Force client to re-register and check for updates (legacy method) | Client re-authorizes and scans WSUS |
 | 8 | - | Verify in WSUS console under **All Computers** | Last Contact Time updates; client appears in WSUS |
-
-## Additional Tips
-- **Wait Time:** First-time clients may take **5–15 minutes** to appear in WSUS.  
-- **Firewall:** Ensure TCP 8530 (HTTP) or 8531 (HTTPS) is open between client and server.  
-- **Logs:** If issues persist, check client logs:  
-  - Windows 10/11: `Get-WindowsUpdateLog` -> generates `WindowsUpdate.log`  
-  - Server 2022: `C:\Windows\WindowsUpdate.log`
 
 
 

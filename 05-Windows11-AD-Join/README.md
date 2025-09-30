@@ -8,7 +8,7 @@ In this lab, I installed a Windows 11 client, configured its network settings, a
 
 ## Objective
 
-The goal of this lab was to join a Windows client machine to the Active Directory domain, verify that domain user accounts could log in, and confirm that Group Policies were applied successfully
+The goal of this lab was to join a Windows client machine to the Active Directory domain, verify that domain user accounts could log in, and confirm that Group Policies were applied successfully.
 
 ### Step 1: Install Windows 11
 
@@ -16,18 +16,19 @@ Installed Windows 11 Pro on VMware with `4 GB RAM`, `2 CPUs`, and `64 GB disk`.
 
 ![alt text](<screenshots/01-Win11-vmware-resource-allocation - Copy.png>)
 
-**The image shows the set-up in vmware**
+***The figure above shows the set-up in vmware***
 
 Next, I selected `Windows 11 Pro for workstation`.
 
-!![alt text](<screenshots/02-win11-version-installation - Copy.png>)
-**The image shows the win11 version**
+![alt text](<screenshots/02-win11-version-installation - Copy.png>)
+
+***The figure above shows the win11 version***
 
 I then completed the installation setup and confirmed the client booted successfully.
 
 ![alt text](<screenshots/04-win11-installed - Copy.png>)
 
-**The image shows win11 successully installed**
+***The figure above shows win11 successully installed***
 
 ### Step 2: Configure Network Settings
 
@@ -41,11 +42,11 @@ I verified connectivity using ping `192.168.1.9` and ping `9quid.local`.
 
 ![alt text](screenshots/14.successfull-communication-with-DC.png)
 
-**The image shows successfull communication with DC**
+***The figure above shows successfull communication with DC***
 
 ### Step 3: Join Client to the Domain
 
-I opened System Properties → Changed Computer Name/Domain to `9Quid-11` → selected Domain.
+I opened `System Properties` -> `Changed Computer Name` to `9Quid-11` -> selected Domain.
 
 ![alt text](<screenshots/08-joined-workgroup to DC - Copy.png>)
 
@@ -55,7 +56,7 @@ I entered `9quid.local` and authenticated with the Domain Admin account.
 
 ![alt text](<screenshots/09-successfully-joined-DC - Copy.png>)
 
-**The image shows win11 has been joined successfully**
+***The figure above shows win11 has been joined successfully***
 
 I restarted the machine to complete the domain join.
 
@@ -67,7 +68,7 @@ I confirmed the login was successful and profile created.
 
 ![alt text](screenshots/15.user-log-in.png)
 
-**The image shows successful log in**
+***The figure above shows successful log in***
 
 ### Step 5: Test Group Policy Application
 
@@ -77,7 +78,7 @@ I confirmed the login was successful and profile created.
 
 ![alt text](screenshots/19-confirmed-logon-banner.png)
 
-**The image shows group policy was applied successfully**
+***The figure above shows group policy was applied***
 
 ### Key Settings
 
@@ -91,13 +92,11 @@ I confirmed the login was successful and profile created.
 
 ### Troubleshooting
 
-- If domain join failed, checked DNS settings, client must use DC’s DNS, not external DNS.
+- I checked DNS if client failed to join the domain, client must use DC’s DNS, not external DNS.
 
 - Verified that the DC and client were on the same Host-Only network.
 
-- Used nltest /dsgetdc:yourdomain.local to confirm the client could locate the Domain Controller.
-
-- Ensured correct time synchronization between client and DC (Kerberos requires this).
+- Used `nltest /dsgetdc:9quid.local` to confirm the client could locate the Domain Controller.
 
 ### Lessons Learned
 
@@ -105,4 +104,4 @@ I confirmed the login was successful and profile created.
 
 - Always confirm the client is getting its IP and DNS from the DHCP scope on the DC.
 
-- After a successful join, domain policies like `control panel restrictions from Chapter 4` apply immediately after `gpupdate /force` or a `reboot`.
+- After a successful join, domain policies like `control panel restrictions from Chapter 4` applied immediately after `gpupdate /force` or a `reboot`.

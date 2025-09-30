@@ -9,40 +9,40 @@ This project showcases practical experience with the following:
 
 ### Windows Server 2022 Core Services
 
-- Promoted a domain controller, configured DNS & DHCP  
-- Created and managed users, groups, and OUs in Active Directory  
-- Deployed and tested Group Policy Objects (GPOs) for centralized management  
+- Promoted a domain controller, configured DNS & DHCP.
+- Created and managed users, groups, and OUs in Active Directory.
+- Deployed and tested Group Policy Objects (GPOs) for centralized management.  
 
 ### Client & Resource Management
 
-- Joined Windows 11 clients to the domain  
-- Configured file shares and print services with appropriate permissions  
-- Deployed IIS for internal web hosting with SSL/TLS certificates via AD CS  
+- Joined Windows 11 client to the domain.  
+- Configured file shares and print services with appropriate permissions.  
+- Deployed IIS for internal web hosting with SSL/TLS certificates via AD CS.  
 
 ### Patch & Update Management
 
-- Installed and configured Windows Server Update Services (WSUS) for centralized patching  
-- Practiced staged rollout of security updates to test and production clients  
+- Installed and configured Windows Server Update Services (WSUS) for centralized patching.  
+- Practiced staged rollout of security updates to test and production clients.  
 
 ### Cross-Platform Integration
 
-- Integrated Ubuntu into Active Directory using Kerberos and SSSD  
-- Tested AD-authenticated access to Windows file shares from Linux  
+- Integrated Ubuntu into Active Directory using Kerberos and SSSD.  
+- Tested AD-authenticated access to Windows file shares from Linux.  
 
 ### Helpdesk Simulation
 
-- Installed and configured **osTicket** to simulate IT support ticketing workflows  
-- Practiced troubleshooting by logging, resolving, and documenting test issues  
+- Installed and configured **osTicket** to simulate IT support ticketing workflows.  
+- Practiced troubleshooting by logging, resolving, and documenting test issues.  
 
 ### Security Practices
 
-- Implemented least-privilege access, encryption via SSL/TLS, and centralized authentication  
-- Understood the role of DNS, certificates, and patching in securing enterprise environments  
+- Implemented least-privilege access, encryption via SSL/TLS, and centralized authentication.  
+- Understood the role of GPOs, certificates, and patching in securing enterprise environments.  
 
 ### Troubleshooting & Documentation
 
-- Used tools like **Event Viewer, PowerShell, nslookup, ping, gpresult** for problem-solving  
-- Documented each lab in a structured format: objectives, step-by-step setup, troubleshooting, and lessons learned  
+- Used tools like **Event Viewer, PowerShell, nslookup, ping, gpresult** for problem-solving.  
+- Documented each lab in a structured format: Introduction, objectives, step-by-step setup, troubleshooting, and lessons learned.  
 
 ### Course Reference:
 
@@ -59,31 +59,31 @@ This lab follows concepts from **Introduction to Windows Server 2016 for Beginne
 
 ## General IT Skills Gained
 
-- **System Installation & Configuration:** Windows Server 2022, Windows 11 clients, DNS, DHCP, IIS, AD CS  
-- **Active Directory & User Management:** Users, groups, OUs, permissions, role-based access  
-- **Networking & Troubleshooting:** DNS, DHCP, connectivity, domain join issues  
+- **System Installation & Configuration:** Windows Server 2022, Windows 11 clients, DNS, DHCP, IIS, AD CS.  
+- **Active Directory & User Management:** Users, groups, OUs, permissions, role-based access.  
+- **Networking & Troubleshooting:** DNS, DHCP, connectivity, domain join issues.  
 - **File & Print Services Management:** Shared folders, NTFS permissions, network printers  
-- **Automation & Scripting:** Basic PowerShell for repetitive tasks and user management  
+- **Automation & Scripting:** Basic PowerShell for repetitive tasks and user management.  
 - **Cross-Platform Awareness:** Ubuntu Desktop AD exploration  
-- **Documentation & Organization:** Maintaining configs, screenshots, and structured lab files  
-- **Problem-Solving:** Diagnosing and resolving network, authentication, and service issues
+- **Documentation & Organization:** Maintaining configs, screenshots, and structured lab files.  
+- **Problem-Solving:** Diagnosing and resolving network, authentication, and service issues.
 
 ### Downloads & Resources
 
 **Operating Systems** (official sources recommended):
 
-- [Windows Server 2022](https://go.microsoft.com/fwlink/p/?linkid=2195333)  
-- [Windows 11](https://www.microsoft.com/en-us/software-download/windows11) 
-- [Ubuntu Desktop](https://ubuntu.com/download/desktop/thank-you?version=24.04.3&architecture=amd64&lts=true)
+- [Windows Server 2022](https://go.microsoft.com/fwlink/p/?linkid=2195333).  
+- [Windows 11](https://www.microsoft.com/en-us/software-download/windows11). 
+- [Ubuntu Desktop](https://ubuntu.com/download/desktop/thank-you?version=24.04.3&architecture=amd64&lts=true).
 
 **Virtualization Software:**  
-- [VMware Workstation Pro](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true)  
+- [VMware Workstation Pro](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true).  
   *Requires a free Broadcom (VMware) account.*
 
 
 ### Repository Structure
 
-The project is organized into step-specific folders containing screenshots, scripts, or configuration files for each lab task:<br />
+The project is organized into step-specific folders containing screenshots, scripts, or configuration files for each lab task.
 
 ### Lab Environment
 

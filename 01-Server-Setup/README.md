@@ -14,19 +14,19 @@ Firstly, I deployed windows server on VMware Workstation Pro and allocated `2 GB
 
 ![alt text](screenshots/01-vmware-vm-settings.png)
 
-**Figure Shows Resources allocated to Windows Server**
+***The figure above shows resources allocated to Windows Server***
 
 Next, I installed Server 2022 Datacenter with Desktop Experience.
 
 ![alt text](screenshots/02-server-setup-selection.png)
 
-**Figure shows Windows Server 2022 installation with Desktop Experience selected.**
+***The figure above shows Windows Server 2022 installation with Desktop Experience selected.***
 
 Then confirmed the set-up was complete.
 
 ![alt text](screenshots/03-server-first-login.png)![alt text](screenshots/04-windows-server-dashboard.png)
 
-**The first image shows the first login page and the second image shows the windows server dashboard respectively.**
+***The first image shows the first login page and the second image shows the windows server dashboard respectively.***
 
 ### Step 2: Configure Network Interface
 
@@ -59,11 +59,11 @@ I verified network connectivity by pinging the DNS server and the loopback addre
 
 ### Key Settings
 
-- create a custom NAT if using VMware to ensure internet access after assigning a static ip address
+- create a custom NAT if using VMware to ensure internet access after assigning a static ip address.
 
-- Rename your server and assign a static ip address before promoting it to a domain controller
+- Rename your server and assign a static ip address before promoting it to a domain controller.
 
-- Take regular snapshots so you can easily rollback in case of system crashes or failures
+- Take regular snapshots so you can easily rollback in case of system crashes or failures.
 
 ## Useful Commands
 

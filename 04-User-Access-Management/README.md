@@ -24,11 +24,11 @@ Users can be created in several places; from the **Active Directory Administrati
 
 ![alt text](screenshots/01.creating-resources-AD.png)
 
-**The above image shows how to create users and other resources in Active Directory using the Windows Server- Dashboard**
+***The above figure shows how to create users and other resources in AD using the Windows Server- Dashboard***
 
 ![alt text](<screenshots/03.user-creation- AD admin center.png>)
 
-**Figure shows how to create a user from Active Directory Administration Center**
+***The figure above shows how to create a user from Active Directory Administration Center***
 
 **Step 2: Creating and Adding Users to Groups.**
 
@@ -36,15 +36,15 @@ Groups can be created in a similar way as creating Users from  Active Directory 
 
 ![alt text](screenshots/04.group-creation.png)
 
-**Figure shows groups can be created from Active Directory Admin Center**
+***The figure above shows groups can be created from Active Directory Admin Center**
 
 Next, I created a group called `SOC Analysts` and added the user `Como Brest` to the group.
 
 ![alt text](screenshots/05.group-member.png)
 
-**Figure shows a member of SOC Analysts group.**
+***The figure above shows a member of SOC Analysts group.**
 
-### Creating and managing AD User Home Folders
+## Creating and managing AD User Home Folders
 
 One way to manage user accounts effectively in a Windows network environment is by creating individual home folders for each user. The procedure is as follows:
 
@@ -56,13 +56,13 @@ Configured appropriate permissions for the intended users.
 
 ![alt text](<screenshots/08.HomeDirs-E drive.png>)
 
-**The figure shows an `E:drive` for users**
+***The figure above shows an `E`:drive for users***
 
 Next, I created a main folder `Home_Folder` to store all user directories.
    
 ![alt text](screenshots/10-home_folder.png)
 
-**This figure shows user's home folder**
+***The figure above shows user's home folder***
 
 **2. Create Active Directory users**
 
@@ -70,7 +70,7 @@ Next I created users: `cbrest`, `labella`, `obbob`, `pfoden`.
 
 ![alt text](screenshots/09-user-home-folders.png)
 
-**This figure shows users created**
+***This figure above shows users created***
 
 **3. Assign home folders to users**
 
@@ -92,38 +92,38 @@ lastly, I verified other users could not access folders not assigned to them.
 
 ![alt text](screenshots/12-obobb-home-folder.png)
 
-**The figure above shows a folder created by obobb in his home folder**
+**The figure above shows a folder created by obobb in their home folder**
 
-### Creating and Organizing OUs
+## Creating and Organizing OUs
 
 Moving forward I explored creating and organizing Organizational Units. Organizational Unit allow us to manage a subset of AD objects where policy can be applied to granularly define groups.
 
 ![alt text](<screenshots/06. OUs.png>)
 
-**Figure shows two Organizational Units**
+***The figure above shows two Organizational Units***
 
 I explored further and created two OUs in the `Douala- CMR Office branch` namely `IT DEPT` and `SOC DEPT`.
 
 ![alt text](screenshots/07.expanded-OU.png)
 
-**Figure shows expanded OU for Douala- CMR Office.**
+***The figure above shows expanded OU for Douala- CMR Office.***
 
->  `Delegation Note`: OUs are not only used for organizing resources and applying policies, but also for delegating administrative tasks. For instance, the SOC Analysts group could be granted permission to reset passwords or manage accounts within the SOC DEPT OU, without giving them full control over the entire domain.
+> `Delegation Note`: OUs are not only used for organizing resources and applying policies, but also for delegating administrative tasks. For instance, the SOC Analysts group could be granted permission to reset passwords or manage accounts within the SOC DEPT OU, without giving them full control over the entire domain.
 
-### Group Policy
+## Group Policy
 
-In this lab, I explored how Group Policy Objects (GPOs) can be applied in Active Directory to improve security and enforce organizational standards.
+Here, I explored how Group Policy Objects (GPOs) can be applied in Active Directory to improve security and enforce organizational standards.
 Specifically, I configured:
 
-- An Interactive Logon Banner to display a security notice before login.
+- An `Interactive Logon Banner` to display a security notice before login.
 
-- Password Policy Enforcement to strengthen account security by requiring complex, longer passwords and enforcing lockout rules after failed login attempts.
+- `Password Policy Enforcement` to strengthen account security by requiring complex, longer passwords and enforcing lockout rules after failed login attempts.
 
-- Access to Control Panel & PC Settings via GPO.
+- `Access to Control Panel & PC Settings` via GPO.
 
 Group Policies refer to how administrators manage users and computers in Active Directory and they do this through `Group Policy Objects` which are the specific rules set by administrators to manage users and computers behaviour in Active Directory like logon banners, password requirements, software installations.
 
-**Lab 1: Configuring a Logon Banner**
+### Lab 1: Configuring a Logon Banner**
 
 I opened Group Policy Management.
 
@@ -135,15 +135,15 @@ Configured Interactive logon: Message title for users attempting to log on -> `P
 
 ![alt text](screenshots/13.interactive-logon.png)
 
-**The figure above shows the interactive logon message setting.**
+***The figure above shows the interactive logon message setting.***
 
 `Interactive logon`: Message text for users attempting to log on ->  ***This computer System is the property of 9Quid Security. Access is restricted to authorized personnel for official buisness purposes. Unauthorized use or access is srtictly prohibited and may result in disciplinary action and/or prosecution. Users should have no expectations of privacy.***
 
 ![alt text](screenshots/14.logon-banner.png)
 
-**The figure above shows the logon banner displayed prior to authentication.**
+***The figure above shows the logon banner displayed prior to authentication.***
 
-**Lab 2: Password and Account Lockout Policy Enforcement**
+### Lab 2: Password and Account Lockout Policy Enforcement**
 
 `Step 1: Open Group Policy Management`
 
@@ -157,11 +157,11 @@ Right-clicked `Default Domain Policy` and selected `Edit`.
 
 ![alt text](screenshots/15.password-policy.png)
 
-**Figure above shows Navigating to Password Policy in GPO.**
+***The figure above shows Navigating to Password Policy in GPO.***
 
 `Step 3: Configure Password Policy`
 
-Next, I navigated to:  `Computer Configuration` -> `Policies` -> `Windows Settings` -> `Security Settings` -> `Account Policies` -> `Password Policy`
+Next, I navigated to: `Computer Configuration` -> `Policies` -> `Windows Settings` -> `Security Settings` -> `Account Policies` -> `Password Policy`.
 
 - `Enforce password history` -> **24 passwords remembered**
 
@@ -175,11 +175,11 @@ Next, I navigated to:  `Computer Configuration` -> `Policies` -> `Windows Settin
 
 ![alt text](screenshots/16.password-settings.png)
 
-**The figure above shows the policy Configurations of minimum length and complexity settings**
+***The figure above shows the policy Configurations of minimum length and complexity settings***
 
 `Step 4: Configure Account Lockout Policy`
 
-Next I navigated to: `Computer Configuration` -> `Policies` -> `Windows Settings -> `Security Settings` -> `Account Policies` -> `Account Lockout Policy`
+Next I navigated to: `Computer Configuration` -> `Policies` -> `Windows Settings` -> `Security Settings` -> `Account Policies` -> `Account Lockout Policy`.
 
 - `Account lockout threshold` -> **3 invalid attempts**  
 - `Account lockout duration` -> **15 minutes**  
@@ -187,7 +187,7 @@ Next I navigated to: `Computer Configuration` -> `Policies` -> `Windows Settings
 
 ![alt text](screenshots/17.account-lockout-settings.png)
 
-**The figure above shows Account lockout policy configuration.**
+***The figure above shows Account lockout policy configuration.***
 
 `Step 5: Apply & Test`
 
@@ -195,13 +195,13 @@ I entered a password that did not meet the password requirement for the user `cb
 
 ![alt text](screenshots/19.failed-password-change.png)
 
-**The figure show a client test showing weak password rejection.**
+***The figure show a client test showing weak password rejection.***
 
 I also entered three incorrect passwords to confirm that the account lockout policy was triggered.
   
 ![alt text](screenshots/18.account-lockout.png)
 
-**The figure shows Client test showing account lockout after failed attempts.**
+***The figure shows Client test showing account lockout after failed attempts.***
 
 `Lab 4: Restricting Access to Control Panel & PC Settings via GPO`
 
@@ -213,17 +213,17 @@ I navigated to Group Policy Management.
 
 Next I right-clicked  `9quid.local`.
 
-Then I selected `create a GPO in this domain, and Link it here` and named it `Restrict Control Panel Access`.
+Then I selected create a GPO in this domain, and Link it here and named it `Restrict Control Panel Access`.
 
 `Step 2: Configure the GPO`
 
 From here, I right-clicked on the `GPO` -> `Edit`.
 
-Next, I navigated to `User Configuration -> `Policies` -> `Administrative Templates` -> `Control Panel`
+Next, I navigated to `User Configuration` -> `Policies` -> `Administrative Templates` -> `Control Panel`.
 
 ![alt text](screenshots/20-enabled-control-panel-restriction.png)
 
-**The figure shows the policy setting window with Enabled selected.**
+***The figure shows the policy setting window with Enabled selected.***
 
 `Step 3: Apply the Policy and Verify the Result`
 
@@ -236,7 +236,7 @@ successfully.
 
 ![alt text](screenshots/21.restricted-control-panel-access.png)
 
-**The figure above shows access has been restricted to control panel for regular domain users**
+***The figure above shows access has been restricted to control panel for regular domain users***
 
 ### Common Commands
 
@@ -271,6 +271,6 @@ successfully.
 
 - If the accidental deletion box is checked then groups or objects can not be moved.
   
-- These skills are directly applicable to helpdesk work, since junior IT staff often handle user account creation, unlocking, and GPO enforcement.”
+- These skills are directly applicable to helpdesk work, since junior IT staff often handle user account creation, unlocking, and GPO enforcement.
 
-- From a cybersecurity perspective, enforcing password/lockout policies helps reduce risks like brute-force attacks and weak credentials.”
+- From a cybersecurity perspective, enforcing password/lockout policies helps reduce risks like brute-force attacks and weak credentials.

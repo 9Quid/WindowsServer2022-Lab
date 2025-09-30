@@ -7,23 +7,24 @@ In this lab, I set up Active Directory Domain Services (AD DS) on Windows Server
 AD DS is the core directory service for Windows domain networks. It provides centralized management of users, computers, groups, and security policies, and it authenticates and authorizes all users and devices within a domain.
 
 I installed the AD DS role, promoted the server to a Domain Controller, and verified functionality by creating and testing an Organizational Unit (OU).
+
 ## Objectives
 
-The goal of this lab was to install and configure Active Directory Domain Services (AD DS), promote the server to a Domain Controller, and confirm its functionality in the domain environment..
+The goal of this lab was to install and configure Active Directory Domain Services (AD DS), promote the server to a Domain Controller, and confirm its functionality in the domain environment.
 
 ### Step 1: Install Roles & Features
 
 Opened Server Manager, clicked on `Manage` selected `Add Roles and Features`.
 
-![alt text](<../2.AD DS Config/screenshots/01-roles & features.png>)
+![alt text](<screenshots/01-roles & features.png>)
 
-**Figure shows added roles and features**
+***The figure above shows added roles and features***
 
 Then completed the wizard and installed `AD DS`.
 
-![alt text](<../2.AD DS Config/screenshots/02-AD DS- installed.png>)
+![alt text](<screenshots/02-AD DS- installed.png>)
 
-**Figure Shows the completed installation of AD DS**
+***The figure above shows the completed installation of AD DS***
 
 ### Step 2: Promote Server to Domain Controller
 
@@ -31,25 +32,25 @@ After installing AD DS, I went on to promote the server to a Domain Controller.
 
 > **Note:** At this stage, I took a snapshot of the system to preserve its current state before promotion.
 
-![alt text](<../2.AD DS Config/screenshots/03-AD DS-promotion.png>)
+![alt text](<screenshots/03-AD DS-promotion.png>)
 
-**Figure server promotion**
+***The figure above shows server promotion***
 
 ### Step 3: Verify Server has been promoted to Domain Controller
 
 At this stage after promoting the server to Domain Controller, the server rebooted and all modifications were applied successfully.
 
-![alt text](<../2.AD DS Config/screenshots/04-promoted-server.png>)
+![alt text](screenshots/04-promoted-server.png)
 
-**Figure shows server as a domain controller**
+***The figure above shows server as a domain controller***
 
 ### Step 4: Test Domain Controller Functionality
 
 To ensure the Domain Controller is fully working , I created an Organizational Unit as seen below.
 
-![alt text](<../2.AD DS Config/screenshots/05-TestOU.png>)
+![alt text](screenshots/05-TestOU.png)
 
-**Figure shows a test OU**
+***The figure above shows a test OU***
 
 ## Useful Commands
 
