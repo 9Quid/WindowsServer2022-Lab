@@ -1,13 +1,22 @@
 # Introduction
 
-This lab demonstrates how to integrate an Ubuntu 22.04 LTS client into an Active Directory (AD) domain.
-The objective was to test interoperability between Windows Server and Linux clients, ensuring centralized authentication and consistent access in a mixed Windows + Linux enterprise environment.
+In this lab, I integrated an Ubuntu Desktop client into the `9quid.local` Active Directory domain. This process allows for centralized authentication, enabling Linux users to log in with their AD credentials. This is crucial in mixed-OS environments for maintaining a single source of truth for user identities and simplifying access management.
 
 ### Objectives
 
 The objective of this lab was to configure the Ubuntu client’s networking to enable communication with the Active Directory domain, install and configure the necessary packages for domain integration, and successfully join the Ubuntu machine to the AD domain. Additionally, the lab aimed to test centralized authentication using AD user accounts and to access and validate Windows file shares from the Linux client.
 
-## Step 1: Prepare Linux Client
+### Core Components for Integration
+
+This integration relies on several key Linux packages:
+
+- **Kerberos (`krb5-user`):** The core authentication protocol used by Active Directory. This package allows the Ubuntu client to request and use Kerberos tickets for authentication.
+
+- **SSSD (`sssd-tools`):** The System Security Services Daemon. SSSD acts as a broker, managing communication between the local system and the remote Active Directory domain. It handles authentication, identity lookups, and credential caching.
+
+- **Realmd (`realmd`):** A service that simplifies the process of discovering and joining an identity domain (like Active Directory).
+
+### Step 1: Network and Hostname Configuration
 
 Here, I created a vm, configured the hardware and network requirements on vmware.
 
@@ -40,8 +49,6 @@ Next, I installed troubleshooting tools:
 `sudo apt install net-tools dnsutils -y`
 
 This command installs common troubleshooting tools and network share utilities.
-
-**Step 2: Configure Hostname and DNS**
 
 After installing common troubleshooting tools, I changed the hostname with the command:
 
@@ -78,7 +85,7 @@ I then restarted chrony to apply changes
 
 > - Unfortunately, I was not able to synchronize the time with my Domain Controller. I will keep studying to try and find the solution to this.
 
-**Step 3: Install Required Packages**
+### Step 2: Install Required Packages
 
 I proceeded to joining the Ubuntu client to the domain but first I installed some required packages. 
 
@@ -87,14 +94,12 @@ I proceeded to joining the Ubuntu client to the domain but first I installed som
 This command installs all the packages needed to join an Ubuntu Linux machine to an Active Directory (AD) domain and manage users from the domain.
 These packages provide tools for domain discovery, authentication, and home directory management.
 
-## Step 4: Discover the Domain
+### Step 3: Join the Active Directory Domain
 
 The discovery step checks if the Linux machine can see and talk to the Active Directory domain. It makes sure DNS and ports are working and lists any missing packages needed. In short, it confirms the system is ready before it can be joined to the domain.
 `realm discover 9quid.local`
 
 > Expected output: domain info such as realm name, server, and supported join methods.
-
-## Step 5: Join the Domain
 
 The next step is to join the domain with the administrator account.
 
@@ -119,7 +124,7 @@ To verify if the ubuntu-client joined successfully, I did the following;
 
 ![alt text](Screenshots/ad-user-verified.png)
 
-## Step 6: Access Windows Shares from Linux
+## Step 4: Access Windows Shares from Linux
 
 After joining the Ubuntu client to the AD domain, the next step was to test access to Windows shared folders using domain credentials. This verifies both authentication and proper AD integration.
 
@@ -214,6 +219,9 @@ This allowed the Ubuntu client to access the Windows share securely using AD cre
 
 - Cross-platform permissions enforcement still relies on NTFS rules defined in AD.
 
+- Time synchronization is critical. Kerberos has a built-in tolerance for clock skew (typically 5 minutes) to prevent replay attacks. If the time difference between the Ubuntu client and the Domain Controller exceeds this, authentication will fail.
+
+- SSSD is the modern way to integrate. It acts as the intermediary that connects local Linux services (like the login manager) to Active Directory. Its ability to cache credentials is a huge benefit, allowing domain users to log in even if the Domain Controller is temporarily unreachable.
 
 ## Skills Gained:
 

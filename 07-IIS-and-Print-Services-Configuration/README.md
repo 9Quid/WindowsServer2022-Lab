@@ -2,6 +2,11 @@
 
 ## Introduction
 
+In this lab, I expanded the server's capabilities by configuring three key roles:
+1.  **Internet Information Services (IIS):** To host a simple internal website.
+2.  **Print Services:** To manage and share network printers centrally.
+3.  **Active Directory Certificate Services (AD CS):** To act as an internal Certificate Authority (CA) for issuing SSL/TLS certificates, securing the IIS website.
+
 IIS stands for Internet Information Services and it is a Microsoft's web server platform in windows server that allows for hosting of websites, web applications and other services like file/web sharing, web apps, internal portals. It also supports `HTTP(80)`, `HTTPS(443)`, `FTP(20/21)`, `SMTP(25)`. It is important because it intergrates with Active Directory for authentication which allows only authorized personnel access to resources.
 
 Print Services in Active directory enables windows server to act as a centralized print server. This allows administrators to manage printers and print tasks more efficiently.
@@ -10,7 +15,7 @@ Print Services in Active directory enables windows server to act as a centralize
 
 The objective of this lab is to install and configure IIS for internal website hosting, Secure the IIS website using an SSL/TLS certificate issued by Active Directory Certificate Services (AD CS), set up the Print Services role, share and deploy a printer through Group Policy, and verify access from client machines.
 
-## Part 1: IIS Setup and Configuration
+### IIS Web Server Setup
 
 **Step 1: Install IIS Role**
 
@@ -58,9 +63,9 @@ As I continued to explore further, I created a custom website. The HTML code was
 
 ![alt text](screenshots/4.webpage-successful.png)
 
-## Securing IIS with a Domain Certificate
+## Securing IIS with a AD CS
 
-To further strengthen the lab, I secured the internal IIS website by installing and configuring `Active Directory Certificate Services (AD CS)`. I then issued a domain-signed SSL/TLS certificate and bound it to the site in IIS, ensuring encrypted communication and centralized trust within the domain environment.
+To secure the internal website with HTTPS, I installed Active Directory Certificate Services (AD CS), establishing our own internal Certificate Authority (CA). I then issued a web server certificate from our CA and bound it to the IIS site.
 
 **Step 1: Install AD CS Role**
 
@@ -104,7 +109,7 @@ I secured the IIS site with an SSL certificate to ecrypt communication between c
 
 ***The figure above confirms a secure communication***
 
-## Part 2: Print Services Setup
+### Print Services Configuration
 
 **Step 1: Install Print Services Role**
 
@@ -197,3 +202,7 @@ I secured the IIS site with an SSL certificate to ecrypt communication between c
 - Even virtual printers help practice real-world scenarios of deploying and managing shared resources in Active Directory.
 
 - Enabling `HTTPS` demonstrates encryption and trust inside Active Directory environments.
+
+- AD CS is a powerful tool for internal security. It allows you to create and manage your own certificates.
+
+- GPOs simplify printer deployment. Pushing printers out via Group Policy is highly efficient and ensures that users in specific OUs automatically get the printers they need without any manual setup.

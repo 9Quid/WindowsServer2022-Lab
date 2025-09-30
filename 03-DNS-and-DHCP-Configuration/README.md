@@ -2,6 +2,8 @@
 
 ## Introduction
 
+In this lab, I configured DNS and DHCP, two essential network services. DNS translates human-readable domain names into IP addresses, while DHCP automatically assigns IP addresses to devices on the network. Together, they form the foundation of network services.
+
 `DNS (Domain Name System)`: It is a service that translates human-readable names such as `www.example.com` into IP addresses like `192.168.1.10`. Active Directory uses it to locate domain controllers and services. It runs on port `53 UDP`
 
 `DHCP (Dynamic Host Configuration Protocol)`: A service that automatically assigns IP addresses, subnet masks, default gateways, and DNS servers to clients. This reduces manual configuration and ensures consistent network settings. It uses port `67 UDP` for the server to listen for requests and port `68 UDP` for the client to listen for responses.
@@ -9,6 +11,8 @@
 ## Objectives
 
 The goal of this lab was to install and configure DNS and DHCP, create the necessary zones and scopes, and test that client machines could receive IP addresses and resolve names correctly.
+
+### DNS Configuration
 
 ### Step 1 DNS setup
 
@@ -42,6 +46,8 @@ I set up a reverse lookup zone just out of curiosity, it’s not required for a 
 
 ***The figure above shows a reverse record***
 
+### DHCP Configuration
+
 ### Step 2 DHCP Configuration
 
 DHCP stands for Dynamic Host Configuration Protocol. It allows for automatic IP assignment which reduces manual efort and potential errors. It does this in a process called `DORA`
@@ -62,11 +68,11 @@ On the Server Manager dashbord, I went to the top right click on `Manage` then `
 
 ![alt text](screenshots/04-DHCP-installation-wizard.png)
 
-***The figure above shows DHCP setup wizard***
+***The figure above shows the post-deployment configuration step to authorize the DHCP server in Active Directory.***
 
 ![alt text](screenshots/05-DHCP-server-installed.png)
 
-**Figure shows DHCP installed successfully**
+***The figure above shows DHCP installed successfully***
 
 ### Step 2 Configure DHCP
 
@@ -80,7 +86,7 @@ Next, added address range: `192.168.1.1 - 192.168.1.100`
 
 ![alt text](screenshots/07-DHCP-address-range.png)
 
-**The figure above shows IP address range**
+***The figure above shows IP address range***
 
 The next step was the exclusion list. This list will consist of IP addresses that will not be assigned to clients by the DHCP server. `192.168.1.1 - 192.168.1.20`
 
@@ -120,7 +126,7 @@ I made sure the name resolution worked using `nslookup 9quid.local`.
 
 ***The figure above shows name resolution was successful.***
 
-##  Notes
+## Notes
 
 ### Key settings
 
@@ -242,3 +248,4 @@ This setting tells Windows:
 
 - Always document steps and take VM snapshots before major changes.
 
+- DHCP authorization is a critical security step. It prevents rogue DHCP servers from being introduced to the network, which could be used to redirect traffic or launch man-in-the-middle attacks.

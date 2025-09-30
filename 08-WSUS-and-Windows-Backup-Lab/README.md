@@ -8,6 +8,8 @@ In this lab, I focused on setting up `Windows Server Update Services (WSUS)` to 
 
 The objectives of this lab was to install and configure the WSUS role on Windows Server 2022 and synchronize updates from Microsoft Update. Create computer groups for targeted update deployments, approve and deploy updates to domain-joined clients. Lastly verify that clients received and applied updates from the WSUS server.
 
+### WSUS Configuration
+
 **Steps 1. Prepare Storage for WSUS**
 
 - First, I added a dedicated `20GB` virtual hard drive to be used for the WSUS server.
@@ -96,11 +98,12 @@ If clients don’t report:
 
 - WSUS saves bandwidth by downloading updates once and distributing internally.
 
-- Staged rollouts minimize risks of faulty updates.
+- Staged rollouts are critical for stability. Testing updates on a small, non-critical group of computers before deploying to the entire organization is a fundamental best practice to prevent widespread issues.
 
 - Always approve updates for Test group first before deploying to Production.
+
  
- #NOTES
+ # NOTES
  
 # WSUS Client Troubleshooting Checklist
 

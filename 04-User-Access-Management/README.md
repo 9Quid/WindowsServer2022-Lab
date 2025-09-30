@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, I focused on managing users, groups, organizational units (OUs), and policies in Active Directory. I also explored how to create and assign user home folders and applied Group Policy Objects (GPOs) to enforce security and meet organizational standards.
+In this lab, I focused on User Access Management in Active Directory. I created Organizational Units (OUs) to structure resources, added users and groups, and configured home folders for centralized data storage. Additionally, I implemented Group Policy Objects (GPOs) to enforce security settings like password policies and logon banners.
 
 - `User`: An individual account in Active Directory that can log in and access resources.
 
@@ -15,6 +15,8 @@ In this lab, I focused on managing users, groups, organizational units (OUs), an
 ## Objectives
 
 The goal of this lab was to practice user and group management in Active Directory, create and organize OUs, configure home folders, and apply Group Policy Objects (GPOs) to enforce domain-wide policies.
+
+### OUs, Users, and Groups
 
 **Step 1 Creating and Managing Users**
 
@@ -80,7 +82,7 @@ In the Profile tab, selected `E:` as the home drive and entered the network path
 
 ![alt text](screenshots/11-user-homefolder-path.png)
 
-**The figure above shows the folder path for obobb**
+***The figure above shows the folder path for obobb***
 
 **4. Verify user access**
 
@@ -92,7 +94,7 @@ lastly, I verified other users could not access folders not assigned to them.
 
 ![alt text](screenshots/12-obobb-home-folder.png)
 
-**The figure above shows a folder created by obobb in their home folder**
+***The figure above shows a folder created by obobb in their home folder***
 
 ## Creating and Organizing OUs
 
@@ -263,7 +265,9 @@ successfully.
 
 - Users, groups, and OUs help organize and secure Active Directory.
 
-- Group Policy enforces consistent security settings across all domain machines.
+- Home folders simplify backups and data management. Storing user data on a central server makes it easier to back up and ensures data is retained if a user's workstation fails.
+
+- GPOs are powerful. They can enforce a wide range of settings from a central location.
 
 - Password and lockout policies protect against weak credentials and brute-force attempts.
 

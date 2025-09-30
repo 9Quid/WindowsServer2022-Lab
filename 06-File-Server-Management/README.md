@@ -16,6 +16,8 @@ In this lab, I learned how to manage file access in a Windows Server 2022 Active
 
 The aim of this lab was to create shared folders for departments and users, apply NTFS and Share permissions following least privilege principles and automate drive mapping using Group Policy.Finanlly, test access with different Active Directory user accounts.
 
+### Creating and Securing Shared Folders
+
 ## Step 1: Prepare Department Share Folders
 
 On the `E`: drive (already used for `Home_Folder`), I created a new root folder: `DeptShares` with subfolders `IT Depart`, `Public`, `SOC Depart`.
@@ -58,7 +60,7 @@ I assigned permissions based on the principle of least privilege.
 
 ***The figure above shows advanced permission settings for the Public Folder***
 
-  - `Note`: When setting NTFS permissions, I first removed all existing permissions then explicitly added only the groups that required access.
+  - **Note on Permissions:**: When setting NTFS permissions, I first removed all existing permissions then explicitly added only the groups that required access. I configured both Share Permissions (set to `Authenticated Users - Full Control`) and NTFS Permissions (set specifically for each group). The most restrictive of these two permission sets is what applies. This is a standard best practice to manage access at the more granular NTFS level.
 
 **Step 3: Configure Share Permissions**
 
@@ -200,3 +202,7 @@ One of the difficulties I faced was drive mappings not applying in the beginning
 - Drive Mapping Preferences: Use `Update` and not `Create` to ensure mappings stay consistent without breaking existing ones.
 
 - Best Practice: Keep shares group-specific at both the Share and NTFS level avoid leaving “Authenticated Users” with permissions.
+
+- The Principle of Least Privilege is key. By denying write access to the `SOC` group for the `IT` share, I ensured that users only have the exact permissions they need, reducing the risk of accidental or malicious data modification.
+
+- GPOs automate drive mapping. This is far more efficient and less error-prone than manually mapping drives on each user's machine. It ensures a consistent user experience and that all users have access to the resources they need upon login.

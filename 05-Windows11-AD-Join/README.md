@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, I installed a Windows 11 client, configured its network settings, and joined it to the Active Directory domain. I then verified that domain user accounts could log in and that Group Policies were applied correctly.
+In this lab, I deployed a Windows 11 client and joined it to the `9quid.local` Active Directory domain. This process enables centralized management, allowing the client to authenticate users via the Domain Controller and receive policies enforced by GPOs.
 
 **Domain Join:** The process of connecting a computer to an Active Directory domain so it becomes part of a centrally managed network.
 
@@ -32,11 +32,11 @@ I then completed the installation setup and confirmed the client booted successf
 
 ### Step 2: Configure Network Settings
 
-I configured DNS to point to `192.168.1.9`.
+Crucially, I configured the client’s primary DNS server to be the IP address of the Domain Controller (`192.168.1.9`). This allows the client to resolve the domain name and locate the DC for authentication.
 
 ![alt text](<screenshots/07-win11-dns-config - Copy.png>)
 
-**The image shows dns settings**
+***The figure above shows dns settings***
 
 I verified connectivity using ping `192.168.1.9` and ping `9quid.local`.
 
@@ -50,7 +50,7 @@ I opened `System Properties` -> `Changed Computer Name` to `9Quid-11` -> selecte
 
 ![alt text](<screenshots/08-joined-workgroup to DC - Copy.png>)
 
-**The image shows successful name change**
+***The figure above shows successful name change***
 
 I entered `9quid.local` and authenticated with the Domain Admin account.
 
@@ -100,8 +100,8 @@ I confirmed the login was successful and profile created.
 
 ### Lessons Learned
 
-- Domain joins depend on DNS resolution; if DNS isn’t correct, it will fail to join.
+- DNS is non-negotiable. The client *must* use the Active Directory DNS server to resolve the domain name. Without it, the domain join will fail because the client cannot locate the DC.
 
 - Always confirm the client is getting its IP and DNS from the DHCP scope on the DC.
 
-- After a successful join, domain policies like `control panel restrictions from Chapter 4` applied immediately after `gpupdate /force` or a `reboot`.
+- GPOs are applied on login. It was satisfying to see the logon banner and other policies apply automatically, demonstrating the power of centralized management.

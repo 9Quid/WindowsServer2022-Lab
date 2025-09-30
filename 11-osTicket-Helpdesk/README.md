@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab demonstrates how to install and configure osTicket (an open-source ticketing system) on Windows Server 2022. The goal is to simulate a real IT support workflow, where users submit tickets and IT staff manage and resolve them. This provided me with hands-on experience with web application deployment, database setup, and IT service desk concepts.
+In this lab, I deployed osTicket, an open-source helpdesk ticketing system, to simulate a real-world IT Service Management (ITSM) environment. The goal was to understand the entire ticket lifecycle, from a user reporting an issue to an agent resolving it, all within a structured tracking system..
 
 ### Prerequisites (brief)
 
@@ -16,7 +16,7 @@ This lab demonstrates how to install and configure osTicket (an open-source tick
 The objective of this lab was to install and configure a database stack (PHP, MySQL), deploy osTicket and complete the initial setup wizard, Configure departments, help topics, and test agents. Simulate ticket submission and resolution,
 practice documentation and troubleshooting of issues.
 
-## Part A : Deployment and Configuration
+### Phase 1: Prerequisites Setup (PHP and MySQL)
 
 ## Step 1: Install PHP
 
@@ -63,7 +63,7 @@ Next, I downloaded MySQL Community Server, completed the installation and create
 
 ***The figure shows the database was created***
 
-**Step3 Install osTicket**
+### Phase 2: osTicket Installation and Configuration
 
 - Next, I downloaded the latest osTicket (Stable) from the official site and extract to `C:\inetpub\wwwroot\osticket`.
 
@@ -76,7 +76,7 @@ Next, I downloaded MySQL Community Server, completed the installation and create
 ***The figure above shows the osticket installation wizard***
 
 
-## Part B: Helpdesk Simulation
+### Phase 3: Simulating the Helpdesk Workflow
 
 **Step 1: Configure Helpdesk Environment**
 
@@ -259,6 +259,8 @@ ping helpdesk.local
 
 ## Lessons Learned
 
+- Ticketing systems are the heart of IT support. They provide a structured, auditable trail for managing user requests, ensuring that issues aren't forgotten and that service level agreements (SLAs) can be met.
+
 - `Layered Dependencies`: Web apps like osTicket depend on correct setup of web server (IIS), scripting runtime (PHP), and database (MySQL/MariaDB). A misconfiguration in any layer can block deployment.
 
 - `NTFS Permissions:` IIS apps need carefully scoped file/folder permissions — too restrictive breaks functionality, too broad is a security risk.
@@ -266,3 +268,4 @@ ping helpdesk.local
 - `Troubleshooting Workflow`: Logs (IIS logs, PHP errors, MySQL logs) are essential in narrowing down misconfigurations.
 
 - `Helpdesk Flow Understanding`: Beyond installation, osTicket demonstrates ITIL-like practices — tickets move through a lifecycle (open -> assigned -> resolved -> closed).
+

@@ -39,7 +39,7 @@ I then confirmed configurations were applied by running ipconfig command.
 
 ![alt text](screenshots/05_nic-config.png)![alt text](screenshots/06-IP-config.png)
 
-**The first image shows the  NIC properties showing assigned static IP, subnet mask, gateway, and DNS and the second image shows IP configuration**
+***The first image shows the  NIC properties showing assigned static IP, subnet mask, gateway, and DNS and the second image shows IP configuration***
 
 ### Step 3: Rename Server & Join Domain Preparation
 
@@ -53,13 +53,13 @@ I verified network connectivity by pinging the DNS server and the loopback addre
 
 ![alt text](<screenshots/08-ping-loopback & DNS.png>)
 
-**The figure above shows cuccessfull ping to the loopback & DNS**
+***The figure above shows successfull ping to the loopback & DNS***
 
 ## Key Settings, Commands & Troubleshooting Notes
 
 ### Key Settings
 
-- create a custom NAT if using VMware to ensure internet access after assigning a static ip address.
+- create a custom NAT if using VMware to ensure internet access after assigning a static ip address.This provides an isolated network that mimics a corporate environment and avoids conflicts with the host machine's network.
 
 - Rename your server and assign a static ip address before promoting it to a domain controller.
 
@@ -99,4 +99,3 @@ I verified network connectivity by pinging the DNS server and the loopback addre
 
 - A snapshot-first approach prevents losing hours if AD setup fails.
 
-- Using a custom NAT gives you control over addressing and avoids internet loss when static IPs are used.

@@ -1,4 +1,4 @@
-# Basic PowerShell Scripts for IT & Helpdesk
+# Essential PowerShell for the Level 1 Helpdesk
 
 PowerShell is a command-line and scripting tool that helps automate repetitive IT tasks. It allows users to manage systems, monitor performance, and improve workflow efficiency, making routine processes faster and reducing errors.
 
@@ -23,13 +23,6 @@ foreach ($host in $hosts) {
     Select-Object Address, ResponseTime
 }
 
-**Check-DNS.ps1**
-
-This script checks if a hostname resolves correctly.
-
-$hostname = "google.com"
-Write-Host "Resolving DNS for $hostname..."
-Resolve-DnsName -Name $hostname
 
 ## Services Scripts
 
@@ -47,49 +40,44 @@ Restart-Service -Name $service -Force
 
 Write-Host "$service restarted successfully."
 
-**List-Stopped-Services.ps1**
-
-This script lists all stopped services on the system.
-
-Write-Host "Listing stopped services..."
-Get-Service | Where-Object { $_.Status -eq "Stopped" } |
-Select-Object Name, DisplayName, Status
-
-## Monitoring Scripts
-
-# Check-SystemInfo.ps1
-
-This script displays basic system info like OS, CPU usage, and disk space.
-
-Write-Host "=== System Info ==="
-Get-ComputerInfo | Select-Object CsName, WindowsProductName, OsArchitecture
-
-Write-Host "=== Top 5 CPU Processes ==="
-Get-Process | Sort-Object CPU -Descending | Select-Object -First 5 Name, CPU
-
-Write-Host "=== Disk Space ==="
-Get-PSDrive -PSProvider FileSystem | Select-Object Name, Used, Free
-
-**Monitor-DiskSpace.ps1**
-
-# This script checks if disk space is running low.
-
-$threshold = 5   # GB
-$drive = Get-PSDrive C
-
-$freeGB = [math]::Round($drive.Free/1GB, 2)
-Write-Host "Drive C: Free Space = $freeGB GB"
-
-if ($freeGB -lt $threshold) {
-    Write-Warning "Low disk space! Less than $threshold GB free."
-} else {
-    Write-Host "Disk space is healthy."
-}
 
 ## Active Directory Scripts
 
+### Get-ADUserInfo.ps1
+
+This script retrieves key information about a specific user from Active Directory.
+
+Import-Module ActiveDirectory
+
+### Prompt for the username
+
+$userName = Read-Host -Prompt "Enter the username to look up"
+
+# Get the user and select important properties
+
+Get-ADUser -Identity $userName -Properties DisplayName, EmailAddress, LastLogonDate |
+Select-Object Name, DisplayName, EmailAddress, LastLogonDate
+
+### Get-ADUserGroupMembership.ps1
+
+This script lists all the groups a specific user is a member of.This is essential for troubleshooting permissions issues.
+
+### Import the Active Directory module
+
+Import-Module ActiveDirectory
+
+### Prompt for the username
+
+$userName = Read-Host -Prompt "Enter the username to check group membership"
+
+# Get the user's group memberships
+
+Get-ADPrincipalGroupMembership -Identity $userName |
+Select-Object Name
+
 # Find-LockedOutUsers.ps1
-# This script finds all locked-out AD accounts.
+
+This script finds all locked-out AD accounts.
 
 Import-Module ActiveDirectory
 Search-ADAccount -LockedOut | Select-Object Name, SamAccountName
@@ -161,4 +149,9 @@ Export-Csv $output -NoTypeInformation
 
 Write-Host "Installed software exported to $output"
 
+## Best Practices for the Helpdesk
 
+- **Use `Get-Help`:** If you're unsure about a command, use `Get-Help`. For example, `Get-Help Get-ADUser -Examples` will show you how to use it.
+- **Use `-WhatIf`:** For any command that makes a change (like `Unlock-ADAccount` or `Restart-Service`), you can add the `-WhatIf` parameter to see *what would happen* without actually doing it. This is a safe way to test your commands.
+- **Start with "Get":** Most of your work will involve `Get-*` commands (`Get-ADUser`, `Get-Service`). These are read-only and safe to run. Be more cautious with `Set-*`, `Enable-*`, or `Remove-*` commands.
+- **Don't Run as Admin Unnecessarily:** Many query commands don't require you to run PowerShell as an administrator. Only elevate your privileges when you need to make a change that requires it.

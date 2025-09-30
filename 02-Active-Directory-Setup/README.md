@@ -1,4 +1,4 @@
-# Active Directory Domain services set-up
+# Active Directory Setup
 
 ## Introduction
 
@@ -61,13 +61,13 @@ To ensure the Domain Controller is fully working , I created an Organizational U
 
 ![alt text](screenshots/06.DC-functionality.png)
 
-**Figure shows DC fully functioning**
+***The `Get-ADDomain` and `Get-ADForest` cmdlets confirm the domain and forest are operational.***
 
 ### Lessons Learned
 
 - Snapshots are your best friend. Take regular snapshots to save rollback in case of any misconfigurations.
 
-- DNS is tightly integrated: AD DS setup automatically installs/configures DNS, and allows promotion to be successfull.
+- DNS is tightly integrated: AD DS setup automatically installs/configures DNS. Without proper DNS resolution, clients and other servers cannot locate the domain controller to authenticate or access resources.
 
 - After promotion a reboot is mandatory.
 

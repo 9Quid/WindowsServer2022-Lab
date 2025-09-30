@@ -1,53 +1,46 @@
-# Windows Server 2022 Lab: Active Directory & Core IT Services
+# Windows Server 2022 Homelab: From Bare Metal to a Fully Functioning Enterprise Environment
 
-This project simulates a small organizational network to gain hands-on experience with Windows Server 2022 administration, Active Directory Domain Services (AD DS), DNS/DHCP configuration, file and print services, and PowerShell automation. Completed in a personal virtual lab environment, it demonstrates practical skills in user and group management, network configuration, and troubleshooting, all of which are applicable to entry-level IT and helpdesk roles.
+This project documents the creation of a complete, small-business IT infrastructure from the ground up in a virtualized environment. Starting with a single Windows Server 2022 instance, I designed, built, and secured a full-featured network, including:
+
+- **Core Infrastructure:** Active Directory, DNS, and DHCP.
+- **Client Management:** Onboarding of Windows and Linux clients.
+- **Security:** Group Policies, a Public Key Infrastructure (PKI) with AD CS, and patch management with WSUS.
+- **IT Operations:** A live helpdesk ticketing system (osTicket) and a toolkit of essential PowerShell scripts.
 
 
- ## Project Objectives / Skills Demonstrated
+## Core Competencies Demonstrated
 
-This project showcases practical experience with the following:
+This project showcases hands-on experience across several key areas of IT infrastructure and support:
 
-### Windows Server 2022 Core Services
+#### 1. Identity & Access Management (IAM)
 
-- Promoted a domain controller, configured DNS & DHCP.
-- Created and managed users, groups, and OUs in Active Directory.
-- Deployed and tested Group Policy Objects (GPOs) for centralized management.  
+- Deployed Active Directory Domain Services (AD DS) to serve as the central identity provider.
+- Managed users, groups, and Organizational Units (OUs) for role-based access control.
+- Implemented Group Policy Objects (GPOs) to enforce password policies, account lockouts, and deploy software and settings.
+- Integrated an Ubuntu Desktop client into the domain, demonstrating cross-platform authentication with Kerberos and SSSD.
 
-### Client & Resource Management
+#### 2. Network Services & Security
 
-- Joined Windows 11 client to the domain.  
-- Configured file shares and print services with appropriate permissions.  
-- Deployed IIS for internal web hosting with SSL/TLS certificates via AD CS.  
+- Configured and managed DNS (forward and reverse lookup zones) and DHCP (scopes, reservations, exclusions).
+- Deployed a Public Key Infrastructure (PKI) using Active Directory Certificate Services (AD CS) to issue SSL/TLS certificates for internal services.
+- Hosted a secure internal website on IIS, including binding the SSL certificate.
+- Implemented Windows Server Update Services (WSUS) for centralized patch management and staged update rollouts.
 
-### Patch & Update Management
+#### 3. IT Operations & Service Management
 
-- Installed and configured Windows Server Update Services (WSUS) for centralized patching.  
-- Practiced staged rollout of security updates to test and production clients.  
+- Deployed and configured an osTicket helpdesk system on a full LAMP-like stack (IIS, MySQL, PHP).
+- Simulated the entire IT support ticket lifecycle, from user submission to agent resolution.
+- Developed a toolkit of practical PowerShell scripts for common Level 1 Helpdesk tasks like user lookups and unlocking accounts.
 
-### Cross-Platform Integration
+#### 4. Storage & Resource Management
 
-- Integrated Ubuntu into Active Directory using Kerberos and SSSD.  
-- Tested AD-authenticated access to Windows file shares from Linux.  
-
-### Helpdesk Simulation
-
-- Installed and configured **osTicket** to simulate IT support ticketing workflows.  
-- Practiced troubleshooting by logging, resolving, and documenting test issues.  
-
-### Security Practices
-
-- Implemented least-privilege access, encryption via SSL/TLS, and centralized authentication.  
-- Understood the role of GPOs, certificates, and patching in securing enterprise environments.  
-
-### Troubleshooting & Documentation
-
-- Used tools like **Event Viewer, PowerShell, nslookup, ping, gpresult** for problem-solving.  
-- Documented each lab in a structured format: Introduction, objectives, step-by-step setup, troubleshooting, and lessons learned.  
+- Configured a file server with departmental shares, enforcing permissions using the principle of least privilege.
+- Deployed network printers and managed them centrally via Print Services.
+- Implemented a disaster recovery plan using Windows Server Backup.
 
 ### Course Reference:
 
 This lab follows concepts from **Introduction to Windows Server 2016 for Beginners** by Alton, focusing on AD DS setup, DNS/DHCP configuration, User Access Management and core server management.
-
 
 ## Security Skills Gained
 
