@@ -100,15 +100,18 @@ The project is organized into step-specific folders containing screenshots, scri
 
 ## Table of Contents
 
-1. [Server Setup](./01-Server-Setup/)
-2. [Active Directory Setup](./02-Active-Directory-Setup/)
-3. [DNS and DHCP Configuration](./03-DNS-and-DHCP-Configuration/)
-4. [User Access Management](./04-User-Access-Management/)
-5. [Windows 11 AD Join](./05-Windows11-AD-Join/)
-6. [File Server Management](./06-File-Server-Management/)
-7. [IIS and Print Services Configuration](./07-IIS-and-Print-Services-Configuration/)
-8. [WSUS and Windows Backup Lab](./08-WSUS-and-Windows-Backup-Lab/)
-9. [Ubuntu AD Integration](./09-Ubuntu-AD-Intergration/)
-10. [PowerShell Scripts](./10-PowerShell-Scripts/)
+| Lab # | Topic                                       | Key Skills                                            |
+|-------|---------------------------------------------|-------------------------------------------------------|
+| 01    | Server Setup                                | Virtualization, OS Installation, Basic Networking     |
+| 02    | Active Directory Setup                      | AD DS Promotion, Domain Creation                      |
+| 03    | DNS and DHCP Configuration                  | DNS Zones, DHCP Scopes                                |
+| 04    | User Access Management                      | OUs, Users, Groups, GPOs                              |
+| 05    | Windows 11 AD Join                          | Client Onboarding, Domain Join                        |
+| 06    | File Server Management                      | Share/NTFS Permissions, Mapped Drives                 |
+| 07    | IIS and Print Services                      | Web Server, PKI, SSL, Print Management                |
+| 08    | WSUS and Windows Backup Lab                 | Patch Management, Disaster Recovery                   |
+| 09    | Ubuntu AD Integration                       | SSSD, Kerberos, Cross-Platform Auth                   |
+| 10    | PowerShell Scripts                          | Automation, Helpdesk Efficiency                       |
+| 11    | osTicket Helpdesk                           | ITSM, Ticketing Systems, Web Stack Deployment         |
 
 **Each folder contains screenshots and resources relevant to that step.**
