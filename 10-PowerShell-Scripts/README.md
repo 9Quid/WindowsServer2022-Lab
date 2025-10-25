@@ -7,151 +7,95 @@ PowerShell is a command-line and scripting tool that helps automate repetitive I
 This lab contains some beginner-friendly PowerShell scripts I learned and used in this project. The scripts cover real-world tasks such as troubleshooting network connectivity, restarting services, monitoring systems, and managing Active Directory accounts.
 Even as a beginner, I wanted to build hands-on skills and share them publicly as part of my IT and Cybersecurity learning journey.
 
-## Scripts Included
+## The Essential Commands
 
-## Network Scripts
+### 1. `Get-Help`
+This is the most important command in PowerShell. It's the built-in instruction manual for everything else.
 
-**Test-Network.ps1**
+*   **What it does:** Provides detailed information, including descriptions, parameters, and examples for any PowerShell command.
+*   **When I use it:** Before trying any new command, or when I forget how a command works.
+*   **Example:**
+    ```powershell
+    # Get the full manual for the Get-Service command
+    Get-Help Get-Service
 
-This script pings a list of hosts to check network connectivity.
+    # Show just the practical examples for Get-Service
+    Get-Help Get-Service -Examples
+    ```
 
-`$hosts = @("google.com", "8.8.8.8", "9QUID-SERVER.9quid.local")  
+### 2. `Get-Service`
+A core command for investigating issues with applications or Windows features that run in the background.
 
-foreach ($host in $hosts) {
-    Write-Host "Testing connection to $host..."
-    Test-Connection -ComputerName $host -Count 2 -ErrorAction SilentlyContinue |
-    Select-Object Address, ResponseTime
-}
+*   **What it does:** Gets the status of services on a local or remote computer.
+*   **When I use it:** When a user reports that an application (like a printer) isn't working, I use this to check if the required service is "Running" or "Stopped".
+*   **Example:**
+    ```powershell
+    # Check the status of the Print Spooler on a user's machine named "PC-123"
+    Get-Service -Name spooler -ComputerName PC-123
+    ```
 
+### 3. `Restart-Service`
+The go-to command for the classic "turn it off and on again" fix for a frozen service.
 
-## Services Scripts
+*   **What it does:** Stops and then starts a service.
+*   **When I use it:** If a service is "Running" but still not working correctly, a restart often resolves the issue.
+*   **Example:**
+    ```powershell
+    # Restart the Print Spooler service on the local machine
+    Restart-Service -Name spooler -Force
+    ```
 
-**Restart-PrintSpooler.ps1**
+### 4. `Test-Connection`
+The PowerShell equivalent of `ping`. It's the first step for any network-related problem.
 
-This script restarts the Print Spooler service, commonly used to fix printer issues.
+*   **What it does:** Sends a network packet to another machine to see if it's online and reachable.
+*   **When I use it:** When a user says they "can't access the server" or "the internet is down," I use this to check connectivity to a known target like a server or a public DNS.
+*   **Example:**
+    ```powershell
+    # Send 2 pings to Google's public DNS server to test internet connectivity
+    Test-Connection -ComputerName 8.8.8.8 -Count 2
+    ```
 
-$service = "spooler"
+### 5. `Get-ADUser`
+The starting point for almost any user-related issue in a domain environment.
 
-Write-Host "Checking service: $service"
-Get-Service -Name $service
+*   **What it does:** Retrieves information about a user from Active Directory.
+*   **When I use it:** To check a user's account details, such as their full name, email address, or if their account is locked out.
+*   **Example:**
+    ```powershell
+    # Get all available information for the user 'jsmith'
+    Get-ADUser -Identity jsmith -Properties *
+    ```
 
-Write-Host "Restarting $service..."
-Restart-Service -Name $service -Force
+### 6. `Unlock-ADAccount`
+One of the most common helpdesk tasks.
 
-Write-Host "$service restarted successfully."
+*   **What it does:** Unlocks a user's Active Directory account.
+*   **When I use it:** When a user calls because they are locked out after too many incorrect password attempts.
+*   **Example:**
+    ```powershell
+    # Unlock the account for the user 'jsmith'
+    Unlock-ADAccount -Identity jsmith
+    ```
 
+### 7. `Get-Process`
+Useful for finding out what's running on a user's machine, especially if it's slow.
 
-## Active Directory Scripts
+*   **What it does:** Shows all the processes currently running on a computer.
+*   **When I use it:** To identify applications that are using too much memory or CPU, or to find and terminate a frozen program.
+*   **Example:**
+    ```powershell
+    # Find all running Chrome processes and sort them by CPU usage (highest first)
+    Get-Process -Name chrome | Sort-Object CPU -Descending
+    ```
 
-### Get-ADUserInfo.ps1
+### 8. `Get-EventLog`
+The detective's tool. It lets you read the logs that Windows creates for everything that happens.
 
-This script retrieves key information about a specific user from Active Directory.
-
-Import-Module ActiveDirectory
-
-### Prompt for the username
-
-$userName = Read-Host -Prompt "Enter the username to look up"
-
-# Get the user and select important properties
-
-Get-ADUser -Identity $userName -Properties DisplayName, EmailAddress, LastLogonDate |
-Select-Object Name, DisplayName, EmailAddress, LastLogonDate
-
-### Get-ADUserGroupMembership.ps1
-
-This script lists all the groups a specific user is a member of.This is essential for troubleshooting permissions issues.
-
-### Import the Active Directory module
-
-Import-Module ActiveDirectory
-
-### Prompt for the username
-
-$userName = Read-Host -Prompt "Enter the username to check group membership"
-
-# Get the user's group memberships
-
-Get-ADPrincipalGroupMembership -Identity $userName |
-Select-Object Name
-
-# Find-LockedOutUsers.ps1
-
-This script finds all locked-out AD accounts.
-
-Import-Module ActiveDirectory
-Search-ADAccount -LockedOut | Select-Object Name, SamAccountName
-
-**Unlock-User.ps1**
-
-This script unlocks a user account in AD.
-
-param(
-    [Parameter(Mandatory=$true)]
-    [string]$username
-)
-
-Import-Module ActiveDirectory
-Unlock-ADAccount -Identity $username
-Write-Host "User $username has been unlocked."
-
-**Reset-Password.ps1**
-
-This script resets a user password in AD.
-
-param(
-    [Parameter(Mandatory=$true)]
-    [string]$username,
-    
-    [Parameter(Mandatory=$true)]
-    [string]$newPassword
-)
-
-Import-Module ActiveDirectory
-Set-ADAccountPassword -Identity $username -Reset -NewPassword (ConvertTo-SecureString $newPassword -AsPlainText -Force)
-Write-Host "Password for $username has been reset."
-
-**Get-GroupMembers.ps1**
-
-This script lists members of an AD group.
-
-param(
-    [Parameter(Mandatory=$true)]
-    [string]$groupName
-)
-
-Import-Module ActiveDirectory
-Get-ADGroupMember -Identity $groupName | Select-Object Name, SamAccountName
-
-## General Scripts
-
-**Get-LoggedOnUser.ps1**
-
-This script shows the currently logged-on user.
-
-(Get-WmiObject -Class Win32_ComputerSystem).UserName
-
-**Get-LastBootTime.ps1**
-
-This script shows the last boot time of the system.
-
-(Get-CimInstance Win32_OperatingSystem).LastBootUpTime
-
-**Export-InstalledSoftware.ps1**
-
-This script exports installed software list to a CSV.
-
-$output = "C:\Temp\SoftwareList.csv"
-
-Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* |
-Select-Object DisplayName, DisplayVersion, Publisher |
-Export-Csv $output -NoTypeInformation
-
-Write-Host "Installed software exported to $output"
-
-## Best Practices for the Helpdesk
-
-- **Use `Get-Help`:** If you're unsure about a command, use `Get-Help`. For example, `Get-Help Get-ADUser -Examples` will show you how to use it.
-- **Use `-WhatIf`:** For any command that makes a change (like `Unlock-ADAccount` or `Restart-Service`), you can add the `-WhatIf` parameter to see *what would happen* without actually doing it. This is a safe way to test your commands.
-- **Start with "Get":** Most of your work will involve `Get-*` commands (`Get-ADUser`, `Get-Service`). These are read-only and safe to run. Be more cautious with `Set-*`, `Enable-*`, or `Remove-*` commands.
-- **Don't Run as Admin Unnecessarily:** Many query commands don't require you to run PowerShell as an administrator. Only elevate your privileges when you need to make a change that requires it.
+*   **What it does:** Retrieves events from the Windows Event Logs.
+*   **When I use it:** To investigate the root cause of an application crash or a system error by looking for recent error entries.
+*   **Example:**
+    ```powershell
+    # Show the 20 most recent 'Error' entries from the System log
+    Get-EventLog -LogName System -Newest 20 -EntryType Error
+    ```
